@@ -89,7 +89,7 @@ public class ATM {
             case 5:
                 //改密码
                 changemima(acc, sc);
-                break;
+                return;
             case 6:
                 //返回菜单
                 return;
@@ -145,8 +145,18 @@ public class ATM {
     }
 
     private static void changemima(Account acc, Scanner sc) {
-        System.out.println("请输入新密码：");
-        int newmima = sc.nextInt();
+        while (true) {
+            System.out.println("请输入旧密码：");
+            String mima = sc.next();
+            if (acc.getMima().equals(mima)){
+                System.out.println("新密码为：");
+                String newmima=sc.next();
+                acc.setMima(newmima);
+                return;
+            }else {
+                System.out.println("您输入的密码错误");
+            }
+        }
     }
 
     private static void qukuan(Account acc, Scanner sc) {
