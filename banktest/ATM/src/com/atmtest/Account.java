@@ -2,6 +2,14 @@ package com.atmtest;
 
 public class Account {
     private String cardid;//卡号
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     private String name;//用户名
     private String mima;//银行卡密码
     private double money;//存款
