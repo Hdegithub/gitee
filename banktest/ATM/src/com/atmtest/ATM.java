@@ -1,15 +1,18 @@
+package com.atmtest;
+
 import com.atmtest.Account;
+import com.atmtest.AccountSys;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ATM {
-    public static final  int DENGLU=1;
-    public static final  int ZHUCE=2;
-    public static final  int TUICHU=3;
+    public static final int DENGLU = 1;
+    public static final int ZHUCE = 2;
+    public static final int TUICHU = 3;
+
     public static void main(String[] args) {
-        ArrayList<Account> accountList = new ArrayList<>();
-        initAccounts(accountList);
+        initAccounts(AccountSys.ACC_INSTANCE.accounts);
         System.out.println("======欢迎您进入到ATM系统===============");
         while (true) {
             System.out.println("1、登录账户");
@@ -20,10 +23,10 @@ public class ATM {
             int command = sc.nextInt();
             switch (command) {
                 case DENGLU:
-                    login(accountList, sc);
+                    login(sc);
                     break;
                 case ZHUCE:
-                    kaihu(accountList);
+                    kaihu();
                     break;
                 case TUICHU:
                     System.exit(0);
@@ -36,7 +39,7 @@ public class ATM {
     }
 
 
-    public static void login(ArrayList<Account> accountList, Scanner sc) {
+    public static void login(Scanner sc) {
         System.out.println("==================欢迎您进入到登录操作======================");
         boolean isloginok = false;
         while (true) {
@@ -44,6 +47,7 @@ public class ATM {
             String card = sc.next();
             System.out.println("请输入密码");
             String cardmima = sc.next();
+            ArrayList<Account> accountList = AccountSys.ACC_INSTANCE.accounts;
             for (int i = 0; i < accountList.size(); i++) {
                 Account acc = accountList.get(i);
                 if (card.equals(acc.getCardid()) && cardmima.equals(acc.getMima())) {
@@ -58,13 +62,15 @@ public class ATM {
             }
         }
     }
-public static final int CHAXUN=1;
-    public static final int CUNKUAN=2;
-    public static final int QUKUAN=3;
-    public static final int ZHUANZHANG=4;
-    public static final int CHANGE=5;
-    public static final int RETURN=6;
-    public static final int ZHUXIAO=7;
+
+    public static final int CHAXUN = 1;
+    public static final int CUNKUAN = 2;
+    public static final int QUKUAN = 3;
+    public static final int ZHUANZHANG = 4;
+    public static final int CHANGE = 5;
+    public static final int RETURN = 6;
+    public static final int ZHUXIAO = 7;
+
     private static void shouuser(ArrayList<Account> accountList, Scanner sc, Account acc) {
         System.out.println("==================欢迎您进入到操作界面======================");
         System.out.println("1、查询");
@@ -141,12 +147,11 @@ public static final int CHAXUN=1;
             } else if (zhuanzhangjine == 0) {
                 System.out.println("转账金额不能为0");
             }
-            accountbycardid.setMoney(accountbycardid.getMoney()+zhuanzhangjine);
-            acc.setMoney(acc.getMoney()-zhuanzhangjine);
-            System.out.println("转账完成,你的余额为："+acc.getMoney());
+            accountbycardid.setMoney(accountbycardid.getMoney() + zhuanzhangjine);
+            acc.setMoney(acc.getMoney() - zhuanzhangjine);
+            System.out.println("转账完成,你的余额为：" + acc.getMoney());
             return;
-        }
-        else {
+        } else {
             System.out.println("输入错误");
         }
         return;
@@ -157,12 +162,12 @@ public static final int CHAXUN=1;
         while (true) {
             System.out.println("请输入旧密码：");
             String mima = sc.next();
-            if (acc.getMima().equals(mima)){
+            if (acc.getMima().equals(mima)) {
                 System.out.println("新密码为：");
-                String newmima=sc.next();
+                String newmima = sc.next();
                 acc.setMima(newmima);
                 return;
-            }else {
+            } else {
                 System.out.println("您输入的密码错误");
             }
         }
@@ -234,7 +239,7 @@ public static final int CHAXUN=1;
     }
 
 
-    private static void kaihu(ArrayList<Account> accounts) {
+    private static void kaihu() {
         System.out.println("==================欢迎您进入到注册账户操作======================");
 
     }
