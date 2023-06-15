@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ATM {
+    public static final  int DENGLU=1;
+    public static final  int ZHUCE=2;
+    public static final  int TUICHU=3;
     public static void main(String[] args) {
         ArrayList<Account> accountList = new ArrayList<>();
         initAccounts(accountList);
@@ -16,13 +19,13 @@ public class ATM {
             Scanner sc = new Scanner(System.in);
             int command = sc.nextInt();
             switch (command) {
-                case 1:
+                case DENGLU:
                     login(accountList, sc);
                     break;
-                case 2:
+                case ZHUCE:
                     kaihu(accountList);
                     break;
-                case 3:
+                case TUICHU:
                     System.exit(0);
                     break;
                 default:
@@ -55,7 +58,13 @@ public class ATM {
             }
         }
     }
-
+public static final int CHAXUN=1;
+    public static final int CUNKUAN=2;
+    public static final int QUKUAN=3;
+    public static final int ZHUANZHANG=4;
+    public static final int CHANGE=5;
+    public static final int RETURN=6;
+    public static final int ZHUXIAO=7;
     private static void shouuser(ArrayList<Account> accountList, Scanner sc, Account acc) {
         System.out.println("==================欢迎您进入到操作界面======================");
         System.out.println("1、查询");
@@ -68,7 +77,7 @@ public class ATM {
         System.out.println("请您输入操作命令：");
         int command = sc.nextInt();
         switch (command) {
-            case 1:
+            case CHAXUN:
                 System.out.println("------您的账户信息------");
                 System.out.println("卡号：" + acc.getCardid());
                 System.out.println("用户名：" + acc.getName());
@@ -76,24 +85,24 @@ public class ATM {
                 System.out.println("余额：" + acc.getMoney());
                 System.out.println("提现额度：" + acc.getTixian());
                 break;
-            case 2:
+            case CUNKUAN:
                 cunkuan(acc, sc);
                 break;
-            case 3:
+            case QUKUAN:
                 qukuan(acc, sc);
                 break;
-            case 4:
+            case ZHUANZHANG:
                 //转账
                 zhuanzhang(sc, acc, accountList);
                 break;
-            case 5:
+            case CHANGE:
                 //改密码
                 changemima(acc, sc);
                 return;
-            case 6:
+            case RETURN:
                 //返回菜单
                 return;
-            case 7:
+            case ZHUXIAO:
 
                 break;
             default:
