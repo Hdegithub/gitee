@@ -14,6 +14,7 @@ public class HomeWork07 {
         }
 
         //找到索引
+        //Arrays.binarySearch(数组名，值)，找到这个值在数组中的索引
         int suoyin = Arrays.binarySearch(nums, max);
 
         for (int i = 0; i < nums.length; i++) {
