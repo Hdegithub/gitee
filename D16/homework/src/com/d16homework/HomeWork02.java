@@ -9,8 +9,9 @@ public class HomeWork02 {
             if (num == nums[i]) {
                 System.out.println(true);
                 break;
-            } else System.out.println(isfind);
-            break;
+            } else {
+                System.out.println(isfind);
+            }
         }
     }
 }
