@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class HomeWork07 {
     public static void main(String[] args) {
         //找最大值
-        int[] nums = {3, 6, 1, 0};
+        int[] nums = {3, 4, 6, 1, 0};
         int max = nums[0];
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] > max) {
@@ -18,7 +18,7 @@ public class HomeWork07 {
         int suoyin = Arrays.binarySearch(nums, max);
 
         for (int i = 0; i < nums.length; i++) {
-            if (max >= nums[i] * 2) {
+            if (nums[i]!=max&&max >= nums[i] * 2) {
                 System.out.println(suoyin);
                 break;
             } else if (max < nums[i] * 2) {
