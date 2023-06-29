@@ -17,7 +17,14 @@ public class Stu {
         this.id = id;
     }
 
+<<<<<<< HEAD
 
+=======
+    public Stu(String s, int i) {
+        this.name = s;
+        this.id = i;
+    }
+>>>>>>> D28练习
 
     public String getName() {
         return name;

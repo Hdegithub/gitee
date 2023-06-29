@@ -4,6 +4,8 @@ import com.atmtest.Account;
 import com.atmtest.AccountSys;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ATM {
@@ -12,7 +14,7 @@ public class ATM {
     public static final int TUICHU = 3;
 
     public static void main(String[] args) {
-        initAccounts(AccountSys.ACC_INSTANCE.accounts);
+        initAccounts(AccountSys.ACC_INSTANCE.accountsMap);
         System.out.println("======欢迎您进入到ATM系统===============");
         while (true) {
             System.out.println("1、登录账户");
@@ -48,17 +50,22 @@ public class ATM {
             System.out.println("请输入密码");
             String cardmima = sc.next();
             ArrayList<Account> accountList = AccountSys.ACC_INSTANCE.accounts;
-            for (int i = 0; i < accountList.size(); i++) {
-                Account acc = accountList.get(i);
-                if (card.equals(acc.getCardid()) && cardmima.equals(acc.getMima())) {
-                    isloginok = true;
+            //卡号是否存在
+            Map<String, Account> accountsMap = AccountSys.ACC_INSTANCE.accountsMap;
+            boolean isExsistcardid = accountsMap.containsKey(card);
+            //根据卡号找到账户，再判断密码
+            if (isExsistcardid){
+                Account account = accountsMap.get(card);
+                if (cardmima.equals(account.getMima())){
+                    //登陆成功
                     System.out.println("登录成功");
-                    shouuser(accountList, sc, acc);
+                    shouuser( sc, account);
                     return;
+                }else {
+                    System.out.println("登录失败");
                 }
-            }
-            if (!isloginok) {
-                System.out.println("卡号或密码错误");
+            }else {
+                System.out.println("登录失败");
             }
         }
     }
@@ -71,7 +78,7 @@ public class ATM {
     public static final int RETURN = 6;
     public static final int ZHUXIAO = 7;
 
-    private static void shouuser(ArrayList<Account> accountList, Scanner sc, Account acc) {
+    private static void shouuser( Scanner sc, Account acc) {
         System.out.println("==================欢迎您进入到操作界面======================");
         System.out.println("1、查询");
         System.out.println("2、存款");
@@ -99,7 +106,7 @@ public class ATM {
                 break;
             case ZHUANZHANG:
                 //转账
-                zhuanzhang(sc, acc, accountList);
+                zhuanzhang(sc, acc);
                 break;
             case CHANGE:
                 //改密码
@@ -115,11 +122,12 @@ public class ATM {
                 System.out.println("输入错误");
                 break;
         }
-        shouuser(accountList, sc, acc);
+        shouuser( sc, acc);
     }
 
-    private static void zhuanzhang(Scanner sc, Account acc, ArrayList<Account> accountList) {
-        if (accountList.size() < 2) {
+    private static void zhuanzhang(Scanner sc, Account acc) {
+        Map<String, Account> accountsMap = AccountSys.ACC_INSTANCE.accountsMap;
+        if (accountsMap.size() < 2) {
             System.out.println("缺少账户");
             return;
         }
@@ -129,7 +137,7 @@ public class ATM {
         }
         System.out.println("请输入对方账户：");
         String hiscardid = sc.next();
-        Account accountbycardid = getAccountbycard(accountList, hiscardid);
+        Account accountbycardid = getAccountbycard(accountsMap, hiscardid);
         if (accountbycardid == null) {
             System.out.println("没有找到：" + hiscardid + "的卡号");
             return;
@@ -210,14 +218,14 @@ public class ATM {
     }
 
 
-    private static void initAccounts(ArrayList<Account> accountList) {
+    private static void initAccounts(Map<String, Account> accountMap) {
         Account account = new Account();
         account.setCardid("987654321");
         account.setName("何彦祖");
         account.setMima("123456");
         account.setMoney(500);
         account.setTixian(5000);
-        accountList.add(account);
+        accountMap.put(account.getCardid(), account);
 
         Account account2 = new Account();
         account2.setCardid("666666");
@@ -225,22 +233,54 @@ public class ATM {
         account2.setMima("333333");
         account2.setMoney(0);
         account2.setTixian(5000);
-        accountList.add(account2);
+        accountMap.put(account2.getCardid(), account);
     }
 
-    private static Account getAccountbycard(ArrayList<Account> accountList, String cardid) {
-        for (int i = 0; i < accountList.size(); i++) {
-            Account acc = accountList.get(i);
-            if (cardid.equals(acc.getCardid())) {
-                return acc;
-            }
-        }
-        return null;
+    private static Account getAccountbycard(Map<String, Account> accountmap, String cardid) {
+        return accountmap.get(cardid);
     }
 
 
     private static void kaihu() {
         System.out.println("==================欢迎您进入到注册账户操作======================");
+        Scanner input = new Scanner(System.in);
+        System.out.println("请输入户主姓名：");
+        String name = input.next();
+        System.out.println("请输入密码：");
+        String password = input.next();
+        System.out.println("请确认密码：");
+        String confirmPassword = input.next();
+        while (!confirmPassword.equals(password)) {
+            System.out.println("两次输入的密码不一致，请重新输入确认密码：");
+            confirmPassword = input.next();
+        }
+        AccountSys accInstance = AccountSys.ACC_INSTANCE;
+        String cardNumber = generateCardNumber();
+        Account account = new Account();
+        account.setName(name);
+        account.setMima(password);
+        account.setCardid(cardNumber);
+        account.setMoney(0);
+        accInstance.accountsMap.put(account.getCardid(), account);
+        System.out.println("开户成功！账户信息如下：");
+        System.out.println(cardNumber);
+    }
 
+    public static String generateCardNumber() {
+        boolean isUnique = false;
+        String cardNumber = "";
+        Random random = new Random();
+        while (!isUnique) {
+            for (int i = 0; i < 8; i++) {
+                int digit = random.nextInt(10);
+                cardNumber += digit;
+            }
+            isUnique = true;
+            Map<String, Account> accountsMap = AccountSys.ACC_INSTANCE.accountsMap;
+            if (accountsMap.containsKey(cardNumber)) {
+                isUnique = false;
+            }
+        }
+        return cardNumber;
     }
 }
