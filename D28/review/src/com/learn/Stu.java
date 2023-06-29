@@ -4,12 +4,9 @@ public class Stu {
     private String name;
     private int id;
 
-    @Override
-    public String toString() {
-        return "Stu{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                '}';
+    public Stu(String s, int i) {
+        this.name = s;
+        this.id = i;
     }
 
     public int getId() {
@@ -20,9 +17,7 @@ public class Stu {
         this.id = id;
     }
 
-    public Stu(String s, int i) {
 
-    }
 
     public String getName() {
         return name;
@@ -34,5 +29,12 @@ public class Stu {
 
     public void setName(String name) {
         this.name = name;
+    }
+    @Override
+    public String toString() {
+        return "Stu{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

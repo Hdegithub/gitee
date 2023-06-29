@@ -13,26 +13,26 @@ public class Test03 {
         //（3. 为所有员工工资加薪 100 元；
         //（4. 遍历集合中所有的员工
         //（5. 遍历集合中所有的工资
-        Map<String,Integer>map=new HashMap();
-        map.put("张三",800);
-        map.put("李四",1500);
-        map.put("王五",3000);
+        Map<String, Integer> map = new HashMap();
+        map.put("张三", 800);
+        map.put("李四", 1500);
+        map.put("王五", 3000);
         //改张三工资
-        map.put("张三",2600);
+        map.put("张三", 2600);
         System.out.println(map);
         //给全部人加钱
-        map.forEach((k,v)->{
-            map.put(k,v+100);
+        map.forEach((k, v) -> {
+            map.put(k, v + 100);
         });
         System.out.println(map);
 
         //遍历所有员工
-        map.forEach((k,v)->{
+        map.forEach((k, v) -> {
             System.out.println(k);
         });
 
         //遍历所有工资
-        map.forEach((k,v)->{
+        map.forEach((k, v) -> {
             System.out.println(v);
         });
     }
