@@ -1,7 +1,5 @@
 package com.atmtest;
 
-import com.atmtest.Account;
-import com.atmtest.AccountSys;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -54,17 +52,17 @@ public class ATM {
             Map<String, Account> accountsMap = AccountSys.ACC_INSTANCE.accountsMap;
             boolean isExsistcardid = accountsMap.containsKey(card);
             //根据卡号找到账户，再判断密码
-            if (isExsistcardid){
+            if (isExsistcardid) {
                 Account account = accountsMap.get(card);
-                if (cardmima.equals(account.getMima())){
+                if (cardmima.equals(account.getMima())) {
                     //登陆成功
                     System.out.println("登录成功");
-                    shouuser( sc, account);
+                    shouuser(sc, account);
                     return;
-                }else {
+                } else {
                     System.out.println("登录失败");
                 }
-            }else {
+            } else {
                 System.out.println("登录失败");
             }
         }
@@ -78,7 +76,7 @@ public class ATM {
     public static final int RETURN = 6;
     public static final int ZHUXIAO = 7;
 
-    private static void shouuser( Scanner sc, Account acc) {
+    private static void shouuser(Scanner sc, Account acc) {
         System.out.println("==================欢迎您进入到操作界面======================");
         System.out.println("1、查询");
         System.out.println("2、存款");
@@ -122,7 +120,7 @@ public class ATM {
                 System.out.println("输入错误");
                 break;
         }
-        shouuser( sc, acc);
+        shouuser(sc, acc);
     }
 
     private static void zhuanzhang(Scanner sc, Account acc) {
