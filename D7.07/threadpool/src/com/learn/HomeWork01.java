@@ -1,5 +1,7 @@
 package com.learn;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class HomeWork01 {
     public static void main(String[] args) {
         station station = new station();
@@ -16,6 +18,7 @@ public class HomeWork01 {
 }
 
 class station implements Runnable {
+    private ReentrantLock rLock = new ReentrantLock();
     //火车票从1开始自增到20就卖完
     int ticket = 1;
     //加锁
@@ -25,16 +28,17 @@ class station implements Runnable {
     public void run() {
         while (ticket <= 20) {
             buyticket();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 
     private void buyticket() {
-        synchronized (object) {
+        rLock.lock();
+        try {
             if (ticket <= 20) {
                 System.out.println(Thread.currentThread().getName() + "卖出第" + ticket + "张票");
                 ticket++;
@@ -42,6 +46,8 @@ class station implements Runnable {
                 System.out.println("票卖完了");
                 return;
             }
+        } finally {
+            rLock.unlock();
         }
     }
 }
