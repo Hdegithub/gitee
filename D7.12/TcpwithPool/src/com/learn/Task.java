@@ -9,8 +9,8 @@ import java.net.Socket;
 public class Task {
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(7654);) {
+            System.out.println("服务端启动");
             Socket socket = serverSocket.accept();
-            System.out.println("启动");
             InputStream is = socket.getInputStream();
             DataInputStream dis = new DataInputStream(is);
             String name = dis.readUTF();
