@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace:名称空间
+-->
+
+<mapper namespace="org.example.mapper.GoodMapper">
+
+    <!--
+        数据库表的字段名称  和  实体类的属性名称 不一样，则不能自动封装数据
+            * 起别名：对不一样的列名起别名，让别名和实体类的属性名一样
+                * 缺点：每次查询都要定义一次别名
+                    * sql片段
+                        * 缺点：不灵活
+            * resultMap：
+                1. 定义<resultMap>标签
+                2. 在<select>标签中，使用resultMap属性替换 resultType属性
+
+    -->
+    <!--
+        id：唯一标识
+        type：映射的类型，支持别名
+    -->
+    <resultMap id="goodResultMap" type="Good">
+        <!--
+            id：完成主键字段的映射
+                column：表的列名
+                property：实体类的属性名
+            result：完成一般字段的映射
+                column：表的列名
+                property：实体类的属性名
+        -->
+
+    </resultMap>
+    <insert id="insertGood">
+        insert into tb_goods (title, price)
+        values (#{title}, #{price})
+    </insert>
+
+    <select id="selectAllGoods" resultMap="goodResultMap">
+        select *
+        from tb_goods
+    </select>
+    <select id="selectByid" resultMap="goodResultMap">
+        select *
+        from tb_goods
+        where id = #{id}
+    </select>
+    <select id="selectByCondition" resultMap="goodResultMap">
+        select *
+        from tb_goods
+        where id
+            <![CDATA[
+            <
+        ]]>
+            #{id}
+    </select>
+    <select id="selectByConditionDynamic" resultMap="goodResultMap">
+        select * from tb_goods
+        <where>
+            <if test="title != null and title != '' ">
+                and title like concat('%', #{title}, '%')
+            </if>
+            <!--
+            <if test="id != null">
+                and id = 18
+            </if>-->
+        </where>
+    </select>
+
+    <select id="selectByOneCondition" resultMap="goodResultMap">
+        select * from tb_goods
+        <where>
+            <choose>
+                <when test="price != null">
+                    price = #{price}
+                </when>
+                <when test="title != null and title != '' ">
+                    title like concat('%', #{title}, '%')
+                </when>
+                <otherwise>
+                    price = 10
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+</mapper>
