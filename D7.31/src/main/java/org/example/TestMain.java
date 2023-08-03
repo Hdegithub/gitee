@@ -40,7 +40,7 @@ public class TestMain {
         user.setName(username);
         user.setPwd(password);
         int cnt = userMapper.Login(user);
-        if (cnt >= 0){
+        if (cnt > 0){
             System.out.println("登录成功");
         }else{
             System.out.println("登陆失败");
