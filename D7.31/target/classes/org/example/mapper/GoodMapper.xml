@@ -64,10 +64,10 @@
             <if test="title != null and title != '' ">
                 and title like concat('%', #{title}, '%')
             </if>
-
+            <!--
             <if test="id != null">
                 and id = 18
-            </if>
+            </if>-->
         </where>
     </select>
 
