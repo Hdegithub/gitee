@@ -22,7 +22,7 @@ public class TestDept {
         //2. 获取SqlSession对象
         SqlSession sqlSession = sqlSessionFactory.openSession();
         DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
-        List<Emp> empList = mapper.emp();
+        List<Emp> empList = mapper.selectemp();
         Assert.assertNotNull(empList);
         Assert.assertTrue(empList.size() > 0);
         empList.forEach(emp -> System.out.println(emp));

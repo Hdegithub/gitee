@@ -6,5 +6,5 @@ import org.example.pojo.Emp;
 import java.util.List;
 
 public interface DeptMapper {
-    List<Emp>emp();
+    List<Emp> selectemp();
 }

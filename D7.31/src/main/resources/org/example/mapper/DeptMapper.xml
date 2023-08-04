@@ -38,7 +38,7 @@
         -->
 
     </resultMap>
-    <select id="emp" resultMap="deptResultMap">
+    <select id="selectemp" resultMap="deptResultMap">
         SELECT *FROM dongtu_emp emp, dongtu_dept dep
         WHERE emp.dept_id = dep.dept_id;
     </select>
