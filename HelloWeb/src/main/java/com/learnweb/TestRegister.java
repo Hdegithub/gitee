@@ -1,5 +1,10 @@
 package com.learnweb;
 
+import com.learnweb.mapper.UserMapper;
+import com.learnweb.pojo.User;
+import com.learnweb.utils.SqlUtils;
+import org.apache.ibatis.session.SqlSession;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,9 +37,34 @@ public class TestRegister extends HttpServlet {
             writer.flush();
             return;
         }
+        if ("".equals(pwd) || "".equals(pwd2)) {
+            writer.write("密码不允许为空");
+            writer.flush();
+            return;
+        }
         if (!pwd.equals(pwd2)) {
             writer.write("两次密码不一致");
         }
+        User user = new User();
+        user.setUserName(uname);
+        user.setUserPassword(pwd);
+        // 1，检查占用
+        boolean isUsed = isAlreadyUsed(uname);
+        if (isUsed) {
+            writer.write("用户名：" + uname + " 已经被占用了!");
+            writer.flush();
+            return;
+        }
+        //增加数据
+        int rs = addUser(user);
+        if (rs > 0) {
+            writer.write("注册成功");
+        } else {
+            writer.write("注册失败");
+        }
+        writer.write("<br/>");
+        writer.write("<a href=\"login.html\">返回登录</a>");
+        writer.write("<br/>");
         writer.write("你的注册信息如下：");
         writer.write("<br/>");
         writer.write("用户名:" + uname);
@@ -60,5 +90,26 @@ public class TestRegister extends HttpServlet {
         writer.write(" 城市: " + city);
         writer.write("<br/>");
         writer.write(" 描述: " + desc);
+
+    }
+
+    private boolean isAlreadyUsed(String username) {
+        SqlSession sqlSession = SqlUtils.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        int result = userMapper.selectByUname(username);
+        if (result > 0) {
+            //用户名已经被占用了
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private int addUser(User user) {
+        SqlSession sqlSession = SqlUtils.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        //sql 语句返回的int ，含义： 你发送的sql 影响了多少条记录 {insert ,update ,delete}
+        int rs = userMapper.insertByUnamePass(user);
+        return rs;
     }
 }

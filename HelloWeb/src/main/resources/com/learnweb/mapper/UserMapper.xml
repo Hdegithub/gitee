@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learnweb.mapper.UserMapper">
+    <resultMap id="userMap" type="User">
+        <id property="id" column="id"/>
+        <result property="userName" column="username"/>
+        <result property="userPassword" column="password"/>
+        <result property="desc" column="description"/>
+    </resultMap>
+
+
+    <insert id="insertByUnamePass">
+        insert into tb_user(username, password)
+        values (#{userName}, #{passWord});
+    </insert>
+    <insert id="insertUserWithDetail">
+        insert into tb_user(username, password, gender, city, aihao, description)
+        values (#{userName}, #{userPassword}, #{sex}, #{city}, #{aihao}, #{desc})
+    </insert>
+
+    <select id="selectByUnamePass" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS cnt
+        FROM tb_user
+        WHERE username = #{username}
+          AND password = #{password};
+    </select>
+    <select id="selectByUname" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS cnt
+        FROM tb_user
+        WHERE username = #{myusername}
+    </select>
+    <select id="selectUserByName" resultMap="userMap">
+        SELECT *
+        FROM tb_user
+        where username like concat('%', #{userName}, '%');
+    </select>
+</mapper>
