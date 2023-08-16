@@ -25,7 +25,7 @@
     </tr>
 
 <%--    items：指定 要循环的变量   var ：从集合中拿到每个变量名字--%>
-    <c:forEach items="${brands}" var="brand" varStatus="status">
+    <c:forEach items="${myBrands}" var="brand" varStatus="status">
         <tr align="center">
             <%--<td>${brand.id}</td>--%>
             <td></td>
@@ -40,7 +40,7 @@
                 <td>禁用</td>
             </c:if>
 
-            <td><a href="#">修改</a> <a href="#">删除</a></td>
+            <td><a href="#">修改</a> <a href="/dlServlet?id=${brand.id}">删除</a></td>
         </tr>
 
     </c:forEach>
