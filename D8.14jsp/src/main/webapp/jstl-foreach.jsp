@@ -2,7 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page isELIgnored="false"%>
+<%@page isELIgnored="false" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<input type="button" value="新增"><br>
+<input type="addBrand.jsp" value="新增"><br>
 <hr>
 <table border="1" cellspacing="0" width="800">
     <tr>
@@ -24,10 +25,10 @@
 
     </tr>
 
-<%--    items：指定 要循环的变量   var ：从集合中拿到每个变量名字--%>
+    <%--    items：指定 要循环的变量   var ：从集合中拿到每个变量名字--%>
     <c:forEach items="${myBrands}" var="brand" varStatus="status">
         <tr align="center">
-            <%--<td>${brand.id}</td>--%>
+                <%--<td>${brand.id}</td>--%>
             <td></td>
             <td>${brand.brandName}</td>
             <td>${brand.companyName}</td>
@@ -40,7 +41,7 @@
                 <td>禁用</td>
             </c:if>
 
-            <td><a href="#">修改</a> <a href="/dlServlet?id=${brand.id}">删除</a></td>
+            <td><a href="/D8_14jsp/edit?id=${brand.id}">修改</a> <a href="/D8_14jsp/delete?id=${brand.id}">删除</a></td>
         </tr>
 
     </c:forEach>

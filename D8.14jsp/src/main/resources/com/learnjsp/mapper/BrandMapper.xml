@@ -13,10 +13,32 @@
         insert into tb_brand(brand_name, company_name, ordered, description, status)
         values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status})
     </insert>
+    <update id="updateBrandById">
+        update tb_brand
+        set brand_name  = #{brandName}
+          , company_name=#{companyName}
+          , ordered=#{ordered}
+          , description=#{description}
+          , status=#{status}
+        where id = #{id}
+    </update>
+    <delete id="deleteById">
+        delete
+        from tb_brand
+        where id = #{id}
+    </delete>
 
     <select id="selectAll" resultMap="brandMap">
         select *
         from tb_brand
+    </select>
+    <select id="selectById" resultMap="brandMap">
+        select *
+        from tb_brand
+        where id = #{id}
+    </select>
+    <select id="selectByname" resultMap="brandMap">
+        select * from tb_brand where brand_name like '%?%';
     </select>
 
 </mapper>
