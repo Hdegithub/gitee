@@ -1,6 +1,7 @@
 package com.learnjsp.mapper;
 
 import com.learnjsp.pojo.Brand;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface BrandMapper {
 
     int deleteById(Integer id);
 
-    Brand selectByname(String brandName);
+    List<Brand> selectByname(@Param("myinput") String input);
 }

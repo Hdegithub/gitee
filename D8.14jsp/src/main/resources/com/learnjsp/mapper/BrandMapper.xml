@@ -38,7 +38,7 @@
         where id = #{id}
     </select>
     <select id="selectByname" resultMap="brandMap">
-        select * from tb_brand where brand_name like '%?%';
+        select * from tb_brand where brand_name like concat('%', #{myinput}, '%' ) ;
     </select>
 
 </mapper>

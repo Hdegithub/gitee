@@ -46,4 +46,11 @@ public class BrandService {
         int i = brandMapper.deleteById(id);
         return i;
     }
+    public List<Brand> selectByname(String input) {
+        SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
+        BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
+        List<Brand> brandname = brandMapper.selectByname(input);
+        sqlSession.close();
+        return brandname;
+    }
 }
