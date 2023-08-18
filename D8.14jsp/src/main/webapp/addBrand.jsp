@@ -15,7 +15,7 @@
 
 <h3>添加品牌</h3>
 <font color="red">${error}</font>
-
+欢迎您: ${uname}
 <form action="/D8_14jsp/addBrand" method="post">
     品牌名称：<input name="brandName"><br>
     企业名称：<input name="companyName"><br>

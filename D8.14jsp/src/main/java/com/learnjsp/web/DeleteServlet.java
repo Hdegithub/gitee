@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/delete")
@@ -19,7 +20,13 @@ public class DeleteServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        HttpSession session = req.getSession();
+        Object uname = session.getAttribute("uname");
+        if (uname == null) {
+            //说明用户没有登陆
+            resp.sendRedirect(req.getContextPath() + "/login.jsp");
+            return;
+        }
         String id = req.getParameter("id");
         LOGGER.info("service : ", id);
         if (id == null || "".equals(id.trim())) {

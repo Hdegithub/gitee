@@ -11,7 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-<input type="addBrand.jsp" value="新增"><br>
+欢迎您: ${uname}
+<a href="addBrand.jsp"> 新增</a>
+<a href="loginout"> 注销</a>
 <hr>
 <table border="1" cellspacing="0" width="800">
     <tr>
