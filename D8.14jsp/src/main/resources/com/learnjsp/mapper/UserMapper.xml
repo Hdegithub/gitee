@@ -8,6 +8,9 @@
         <result property="username" column="username"/>
         <result property="password" column="password"/>
     </resultMap>
+    <insert id="addUser">
+        insert into user(username,password) values(#{username},#{password});
+    </insert>
 
 
     <select id="selectUser" resultType="java.lang.Integer" >

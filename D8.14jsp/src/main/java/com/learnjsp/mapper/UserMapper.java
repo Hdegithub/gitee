@@ -6,4 +6,5 @@ public interface UserMapper {
 
     int selectUser(User user);
 
+    int addUser(User user);
 }
