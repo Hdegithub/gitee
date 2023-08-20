@@ -9,6 +9,15 @@ public class Brand {
     private Integer ordered;
     private String description;
     private Integer status;
+    private Integer typeId;
+
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
 
     public Brand() {
     }

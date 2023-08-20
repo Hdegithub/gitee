@@ -23,6 +23,7 @@
         <th>排序</th>
         <th>品牌介绍</th>
         <th>状态</th>
+        <th>种类</th>
         <th>操作</th>
 
     </tr>
@@ -42,7 +43,7 @@
             <c:if test="${brand.status != 1}">
                 <td>禁用</td>
             </c:if>
-
+            <td>${brand.typeId}</td>
             <td><a href="/D8_14jsp/edit?id=${brand.id}">修改</a> <a href="/D8_14jsp/delete?id=${brand.id}">删除</a></td>
         </tr>
 

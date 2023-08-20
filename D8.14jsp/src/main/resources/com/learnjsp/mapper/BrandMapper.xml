@@ -8,6 +8,7 @@
         <id property="id" column="id"/>
         <result property="brandName" column="brand_name"/>
         <result property="companyName" column="company_name"/>
+        <result property="typeId" column="type_id"/>
     </resultMap>
     <insert id="insertBrand">
         insert into tb_brand(brand_name, company_name, ordered, description, status)
@@ -29,8 +30,10 @@
     </delete>
 
     <select id="selectAll" resultMap="brandMap">
-        select *
-        from tb_brand
+        SELECT *
+        FROM tb_brand brd,
+             tb_type typ
+        WHERE brd.type_id = typ.type_id;
     </select>
     <select id="selectById" resultMap="brandMap">
         select *
@@ -38,7 +41,9 @@
         where id = #{id}
     </select>
     <select id="selectByname" resultMap="brandMap">
-        select * from tb_brand where brand_name like concat('%', #{myinput}, '%' ) ;
+        select *
+        from tb_brand
+        where brand_name like concat('%', #{myinput}, '%');
     </select>
 
 </mapper>
