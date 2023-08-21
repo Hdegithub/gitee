@@ -11,11 +11,12 @@
     <title>Title</title>
 </head>
 <body>
+<h1>${companyName}</h1>
 欢迎您: ${uname}
 <a href="addBrand.jsp"> 新增</a>
 <a href="loginout"> 注销</a>
 <hr>
-<table border="1" cellspacing="0" width="800">
+<table border="1" cellspacing="0" width="90%">
     <tr>
         <th>序号</th>
         <th>品牌名称</th>
@@ -43,7 +44,7 @@
             <c:if test="${brand.status != 1}">
                 <td>禁用</td>
             </c:if>
-            <td>${brand.typeId}</td>
+            <td>${brand.typeName}</td>
             <td><a href="/D8_14jsp/edit?id=${brand.id}">修改</a> <a href="/D8_14jsp/delete?id=${brand.id}">删除</a></td>
         </tr>
 

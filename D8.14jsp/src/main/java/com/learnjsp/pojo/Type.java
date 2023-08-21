@@ -1,20 +1,23 @@
 package com.learnjsp.pojo;
 
-public class Type extends Brand {
+public class Type  {
     // type_id, type_name
+    private Integer typeId;
+
     private String typeName;
+
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
 
     public String getTypeName() {
         return typeName;
     }
 
-    @Override
-    public String toString() {
-        return "Type{" +
-                "typeName='" + typeName + '\'' +
-                "brandName:" + this.getBrandName() +
-                '}';
-    }
 
     public void setTypeName(String typeName) {
         this.typeName = typeName;

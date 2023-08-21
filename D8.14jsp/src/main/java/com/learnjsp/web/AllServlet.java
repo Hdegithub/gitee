@@ -25,7 +25,6 @@ public class AllServlet extends HttpServlet {
         }
 
         List<Brand> allBrands = brandService.getAllBrands();
-
         req.setAttribute("myBrands", allBrands);
 
         req.getRequestDispatcher("/jstl-foreach.jsp").forward(req, resp);

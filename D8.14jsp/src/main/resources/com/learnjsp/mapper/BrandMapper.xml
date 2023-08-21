@@ -9,10 +9,11 @@
         <result property="brandName" column="brand_name"/>
         <result property="companyName" column="company_name"/>
         <result property="typeId" column="type_id"/>
+        <result property="typeName" column="type_name"/>
     </resultMap>
     <insert id="insertBrand">
-        insert into tb_brand(brand_name, company_name, ordered, description, status)
-        values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status})
+        insert into tb_brand(brand_name, company_name, ordered, description, status, type_id)
+        values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status}, #{typeId})
     </insert>
     <update id="updateBrandById">
         update tb_brand

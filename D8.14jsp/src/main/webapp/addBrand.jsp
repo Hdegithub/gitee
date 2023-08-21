@@ -6,7 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 <html>
 <head>
     <title>新增</title>
@@ -24,7 +25,11 @@
     状态：
     <input type="radio" name="status" value="0">禁用
     <input type="radio" name="status" value="1">启用<br>
-
+    类别: <select name="typeId">
+    <c:forEach items="${allType}" var="typ">
+        <option value="${typ.typeId}">${typ.typeName}</option>
+    </c:forEach>
+</select>
     <input type="submit" value="提交">
 </form>
 </body>

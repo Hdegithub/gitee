@@ -23,6 +23,8 @@ public class AddServlet extends HttpServlet {
         String description = req.getParameter("description");
         String ordered = req.getParameter("ordered");
         String status = req.getParameter("status");
+        String typeId = req.getParameter("typeId");
+
         StringBuilder msg = new StringBuilder();
         if (status == null || "".equals(status.trim())) {
             msg.append("状态不能为空<br>");
@@ -36,6 +38,7 @@ public class AddServlet extends HttpServlet {
             return;
         }
         Brand brand = new Brand(null, brandName, companyName, Integer.parseInt(ordered), description, Integer.parseInt(status));
+        brand.setTypeId(Integer.parseInt(typeId));
         int added = brandService.addBrand(brand);
         if (added > 0) {
             //todo: 跳转到查询所有的界面
