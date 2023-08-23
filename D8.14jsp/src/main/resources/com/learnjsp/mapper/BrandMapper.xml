@@ -44,9 +44,7 @@
     <select id="selectByname" resultMap="brandMap">
         select *
         from tb_brand
-        where brand_name like concat('%', #{brandName}, '%')
-           or company_name like concat('%', #{companyName}, '%')
-           or status like concat('%', #{status}, '%');
+        where brand_name like concat('%', #{myinput}, '%');
     </select>
 
 </mapper>

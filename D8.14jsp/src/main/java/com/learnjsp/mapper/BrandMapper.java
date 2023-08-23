@@ -16,5 +16,5 @@ public interface BrandMapper {
 
     int deleteById(Integer id);
 
-    List<Brand> selectByname(Brand brand);
+    List<Brand> selectByname(@Param("myinput") String input);
 }
