@@ -27,30 +27,33 @@ public class BrandService {
         return i;
     }
 
-    public Brand findById(Integer id){
+    public Brand findById(Integer id) {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         Brand brand = brandMapper.selectById(id);
         sqlSession.close();
         return brand;
     }
-    public int updateBrand(Brand brd){
+
+    public int updateBrand(Brand brd) {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         int i = brandMapper.updateBrandById(brd);
         return i;
     }
-    public int delBrand(Integer id){
+
+    public int delBrand(Integer id) {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         int i = brandMapper.deleteById(id);
         return i;
     }
-    public List<Brand> selectByname(String input) {
+
+    public List<Brand> selectByname(Brand brd) {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
-        List<Brand> brandname = brandMapper.selectByname(input);
+        List<Brand> brandList = brandMapper.selectByname(brd);
         sqlSession.close();
-        return brandname;
+        return brandList;
     }
 }
