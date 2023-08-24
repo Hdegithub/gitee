@@ -1,4 +1,4 @@
-package com.learnjsp.json;
+package com.learnjsp.utils;
 
 /**
  * 充当数据载体

@@ -1,7 +1,7 @@
 package com.learnjsp.web;
 
 import com.alibaba.fastjson.JSON;
-import com.learnjsp.json.Result;
+import com.learnjsp.utils.Result;
 import com.learnjsp.pojo.Brand;
 import com.learnjsp.service.BrandService;
 
@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

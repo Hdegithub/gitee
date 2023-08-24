@@ -27,7 +27,16 @@
                 <el-option label="禁用" value="0"></el-option>
             </el-select>
         </el-form-item>
+        <el-form-item label="类别">
+            <el-select v-model="brand.typeId" placeholder="品牌类别">
 
+                <el-option v-for="item in allTypes" :key="item.typeId"
+                :label="item.typeName"
+                :value="item.typeId"
+                ></el-option>
+
+            </el-select>
+        </el-form-item>
         <el-form-item label="企业名称">
             <el-input v-model="brand.companyName" placeholder="企业名称"></el-input>
         </el-form-item>
@@ -115,6 +124,11 @@
                     prop="status"
                     label="状态"
                     align="center">
+                <el-table-column
+                        prop="typeName"
+                        label="类别"
+                        align="center">
+                </el-table-column>
                 <template scope="scope">
                     <p v-if="scope.row.status == 1"> 启用</p>
                     <p v-if="scope.row.status == 0"> 禁用</p>
@@ -133,6 +147,23 @@
             </el-table-column>
         </el-table>
     </template>
+
+    <!--分页工具条
+https://element-plus.gitee.io/en-US/component/pagination.html#attributes
+size-change ：当修改每页显示条数时候，触发的函数
+current-change：  点击当前第几页时候 ，触发函数
+page-size 指定每页显示几条记录
+total: 总记录条数
+-->
+    <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="currentPage"
+            :page-sizes="[5, 10, 15, 20]"
+            :page-size="pageSize"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="totalCnts">
+    </el-pagination>
 </div>
 
 <script src="js/vue.js"></script>
@@ -146,6 +177,7 @@
         mounted() {
             //当页面加载完成后，发送异步请求，获取数据
             this.selectAll();
+            this.selectAllTypes();
         },
         methods: {
             // 查询所有数据
@@ -154,11 +186,28 @@
                 // 用axios（运行在浏览器中,本质是一个JS的框架） 框架发送 http请求
                 axios({
                     method: "get",
+                    url: "http://localhost:8080/D8_14jsp/selectall?pageNo="+_this.currentPage +"&cntPerPage="+_this.pageSize
+                }).then(function (resp) {
+                    //当后端接口返回数据后，用哪个方法来接收  匿名方法
+                    // 参数resp 代表 来自接口返回的数据
+                    // let s = JSON.stringify(resp.data);
+                    // let parse = JSON.parse(s);
+                    // console.log(parse);
+                    _this.myTableData = resp.data.brands;
+                    _this.totalCnts = resp.data.cnt;
+                })
+            },
+            // 查询所有数据
+            selectAllTypes() {
+                var _this = this;
+                // 用axios（运行在浏览器中,本质是一个JS的框架） 框架发送 http请求
+                axios({
+                    method: "get",
                     url: "http://localhost:8080/D8_14jsp/selectall"
                 }).then(function (resp) {
                     //当后端接口返回数据后，用哪个方法来接收  匿名方法
                     // 参数resp 代表 来自接口返回的数据
-                    _this.myTableData = resp.data;
+                    _this.allTypes = resp.data;
                 })
             },
             onSearch(){
@@ -167,7 +216,7 @@
                 // 用axios（运行在浏览器中,本质是一个JS的框架） 框架发送 http请求
                 axios({
                     method: "post",
-                    url: "http://localhost:8080/D8_14jsp/SelectByname",
+                    url: "http://localhost:8080/D8_14jsp/searchByname",
                     data:_this.brand
                 }).then(function (resp) {
                     //当后端接口返回数据后，用哪个方法来接收  匿名方法
@@ -186,9 +235,13 @@
                 if (_this.dialogType == 0){
                     toUrl = "http://localhost:8080/D8_14jsp/updateBrand";
                 }
+                let token = localStorage.getItem("token");
                 axios({
                     method: "post",
                     url: toUrl,
+                    headers:{
+                        token: token
+                    },
                     data: _this.brand
                 }).then(function (resp) {
                     let s = JSON.stringify(resp.data);
@@ -223,6 +276,31 @@
                 this.brand = {};
                 done();
             },
+            //当页面点击 页码，第几页 变化时候触发的函数
+            // 访问后端接口，参数{ 页码， 每页条数} ，获取这一页的数据
+            handleCurrentChange(val) {
+                // alert(val);
+                //重新查询
+                var _this = this;
+                //Javascript 的Http库  pageNo 当前第几页，页码   cntPerPage:每页显示记录条数
+                //和~ 在同一个按键上   `
+                axios({
+                    method: "get",
+                    url: `http://localhost:8080/D8_14jsp/selectall?pageNo=${val}&cntPerPage=${_this.pageSize}`
+                }).then(function (resp) {
+                    //收到server的返回数据  JSON
+                    let s = JSON.stringify(resp.data);
+                    let parse = JSON.parse(s);
+                    _this.myTableData = parse.brands;
+                    _this.totalCnts = parse.cnt;
+                })
+            },
+            //分页  ,下拉框  修改 每页显示的记录条数时候会触发的函数
+            handleSizeChange(val) {
+                console.log(`每页 ${val} 条`);
+                this.pageSize = val;
+                this.selectAll();
+            },
             onDelete(row){
                 console.log(row.id);
                 var _this = this;
@@ -250,12 +328,22 @@
             //控制对话框的显示还是隐藏
             dialogVisible: false,
             dialogTitle: '',
+            //向后端发送 当前页码，第几页
+            currentPage: 1,
+            //每页显示记录条数
+            pageSize: 10,
+            //来自于后端接口 总记录条数
+            totalCnts: 20,
+
             brand: {
                 brandName:'',
                 companyName:'',
                 status:''
             },
-            myTableData: []
+            //数据list
+            myTableData: [],
+            //所有品牌类别list
+            allTypes:[],
         }
     })
 

@@ -9,19 +9,23 @@
         <result property="password" column="password"/>
     </resultMap>
     <insert id="addUser">
-        insert into user(username,password) values(#{username},#{password});
+        insert into user(username, password)
+        values (#{username}, #{password});
     </insert>
 
 
-    <select id="selectUser" resultType="java.lang.Integer" >
-        SELECT
-            count(*)
-        FROM
-            user
-        WHERE
-            username = #{username}
+    <select id="selectUser" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM user
+        WHERE username = #{username}
           AND password = #{password};
 
+    </select>
+    <select id="selectUserInfo" resultMap="myUser">
+        SELECT *
+        FROM  user
+        WHERE username = #{username}
+          AND password = #{password};
     </select>
 
 </mapper>

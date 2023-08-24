@@ -1,18 +1,24 @@
 package com.learnjsp.web;
+
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.learnjsp.pojo.Brand;
 import com.learnjsp.service.BrandService;
+
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/selectall")
-public class AllServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/search")
+public class SearchPage extends HttpServlet {
     private BrandService brandService = new BrandService();
 
     @Override
@@ -28,15 +34,17 @@ public class AllServlet extends HttpServlet {
         int pNo = Integer.parseInt(pageNo);
         int pageSize = Integer.parseInt(cntPerPage);
 
-        List<Brand> allBrands = brandService.getAllBrands(pNo, pageSize);
-        int count = brandService.getAllBrandsCount();
-
+//        ServletInputStream inputStream = req.getInputStream();
+//        BufferedReader br=new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+//        String line = br.readLine();
+//        Brand brand = JSON.parseObject(line, Brand.class);
+        List<Brand> searchpage = brandService.searchpage(pNo, pageSize);
+        int count = brandService.searchCount()
+                ;
         JSONObject jsonObject = new JSONObject();
+
         jsonObject.put("cnt", count);
-        jsonObject.put("brands", allBrands);
-        // 转换为JSON结构 返回
-        // List  -> JSON 字符串
-        //  String jsonString = JSON.toJSONString(allBrands);
+        jsonObject.put("brands", searchpage);
         resp.setHeader("Content-Type", "text/json;charset=utf-8");
         // 直接返回给前端
         PrintWriter writer = resp.getWriter();

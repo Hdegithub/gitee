@@ -8,6 +8,13 @@ import java.util.List;
 public interface BrandMapper {
     List<Brand> selectAll();
 
+    List<Brand> selectAll(@Param("start") Integer start, @Param("pageSize") Integer pageSize);
+
+    int selectAllCount();
+
+    List<Brand> searchpage(@Param("start") Integer start, @Param("pageSize") Integer pageSize);
+    int searchCount();
+
     int insertBrand(Brand brand);
 
     Brand selectById(Integer id);
@@ -17,4 +24,5 @@ public interface BrandMapper {
     int deleteById(Integer id);
 
     List<Brand> selectByname(Brand brand);
+
 }

@@ -24,4 +24,13 @@ public class UserService {
         int i = userMapper.addUser(user);
         return i;
     }
+    public User isLoginOk2(String uname, String password) {
+        SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = new User();
+        user.setUsername(uname);
+        user.setPassword(password);
+        User user1 = userMapper.selectUserInfo(user);
+        return user1;
+    }
 }

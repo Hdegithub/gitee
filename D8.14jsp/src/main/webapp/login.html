@@ -12,7 +12,7 @@
     <h2>{{err}}</h2>
   <form action="#" method="post">
     用户名:<input v-model="username"><br>
-    密码：<input v-model = "pass"/><br>
+    密码：<input type="password" v-model = "pass"/><br>
     <input type="button" value="登陆" @click="login()"/>
   </form>
 </div>
@@ -40,7 +40,7 @@
          //调用axios 发送登陆请求  ,默认 是把参数整合在一起 用JSON格式提交
          axios({
            method: "post",
-           url: "http://localhost:8080/brand-case/login",
+           url: "http://localhost:8080/D8_14jsp/login2",
            data : {
              uname: _this.username,
              pwd : _this.pass
@@ -52,7 +52,12 @@
              // alert(parse.code);
              if (parse.code == 200){
                  //登陆成功
-                 window.location.href = "brand.html";
+                 console.log(parse.data);
+                 let token = parse.data;
+                 //前端存储本地
+                 localStorage.setItem("token", token);
+                 //页面跳转
+                 window.location.href = "brandList.html";
              }else{
                  //登陆失败
                  _this.err = "登陆失败";

@@ -1,7 +1,9 @@
 package com.learnjsp.web;
 
 import com.alibaba.fastjson.JSON;
-import com.learnjsp.json.Result;
+import com.auth0.jwt.interfaces.Claim;
+import com.learnjsp.utils.JwtUtil;
+import com.learnjsp.utils.Result;
 import com.learnjsp.pojo.Brand;
 import com.learnjsp.service.BrandService;
 
@@ -15,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Map;
 
 @WebServlet(urlPatterns = "/addBrand")
 public class AddServlet extends HttpServlet {
@@ -25,9 +28,10 @@ public class AddServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         ServletInputStream ips = req.getInputStream();
-        BufferedReader br = new BufferedReader(new InputStreamReader(ips));
+        BufferedReader br = new BufferedReader(new InputStreamReader(ips, "UTF-8"));
         String line = br.readLine();
         System.out.println("line: " + line);
+
         //JSON String -> Brand
         Brand brand = JSON.parseObject(line, Brand.class);
 
@@ -59,7 +63,7 @@ public class AddServlet extends HttpServlet {
             // 返回 code 200
             result.setCode(200);
             result.setMsg("增加成功");
-        }else{
+        } else {
             // 返回code  400 代表失败
             result.setCode(400);
             result.setMsg("增加失败");

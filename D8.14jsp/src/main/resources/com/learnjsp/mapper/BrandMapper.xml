@@ -31,10 +31,12 @@
     </delete>
 
     <select id="selectAll" resultMap="brandMap">
-        SELECT *
-        FROM tb_brand brd,
-             tb_type typ
-        WHERE brd.type_id = typ.type_id;
+        select *
+        from tb_brand limit #{start}, #{pageSize}
+        --         SELECT *
+--         FROM tb_brand brd,
+--              tb_type typ
+--         WHERE brd.type_id = typ.type_id;
     </select>
     <select id="selectById" resultMap="brandMap">
         select *
@@ -47,6 +49,28 @@
         where brand_name like concat('%', #{brandName}, '%')
            or company_name like concat('%', #{companyName}, '%')
            or status like concat('%', #{status}, '%');
+    </select>
+    <select id="selectAllCount" resultType="java.lang.Integer">
+        select count(*)
+        from tb_brand
+    </select>
+    <select id="searchpage" resultType="com.learnjsp.pojo.Brand">
+        select *
+        from tb_brand
+        where brand_name like concat('%', #{brandName}, '%')
+           or company_name like concat('%', #{companyName}, '%')
+           or status like concat('%', #{status}, '%')
+            limit #{start}
+            , #{pageSize}
+    </select>
+    <select id="searchCount" resultType="java.lang.Integer">
+        select count(*)
+        from tb_brand
+        where brand_name like concat('%', #{brandName}, '%')
+           or company_name like concat('%', #{companyName}, '%')
+           or status like concat('%', #{status}, '%')
+            limit #{start}
+            , #{pageSize}
     </select>
 
 </mapper>

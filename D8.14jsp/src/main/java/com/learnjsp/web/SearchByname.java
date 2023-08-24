@@ -23,7 +23,7 @@ public class SearchByname extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletInputStream inputStream = req.getInputStream();
-        BufferedReader br=new BufferedReader(new InputStreamReader(inputStream));
+        BufferedReader br=new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
         String line = br.readLine();
         Brand brand = JSON.parseObject(line, Brand.class);
         List<Brand> brands = brandService.selectByname(brand);
