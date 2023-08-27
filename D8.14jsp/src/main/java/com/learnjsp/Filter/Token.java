@@ -24,7 +24,6 @@ public class Token implements Filter {
         System.out.println("doFilter...");
         resp.setHeader("Content-Type", "text/json;charset=utf-8");
         // 直接返回给前端  ,返回给前端的统一的都是JSON
-        PrintWriter writer = resp.getWriter();
         Result result = new Result();
 
         if (requestURI.contains("edit") || requestURI.contains("delete")
@@ -37,16 +36,34 @@ public class Token implements Filter {
                 result.setCode(403);
                 result.setMsg("非法访问");
                 String s = JSON.toJSONString(result);
+                resp.setHeader("Content-Type", "text/json;charset=utf-8");
+                PrintWriter writer = resp.getWriter();
                 writer.write(s);
                 return;
             } else {
                 try {
                     Map<String, Claim> stringClaimMap = JwtUtil.verifyToken(token);
 
-                    if (stringClaimMap == null) {
+                    if (stringClaimMap == null){
                         result.setCode(403);
                         result.setMsg("非法访问");
                         String s = JSON.toJSONString(result);
+                        resp.setHeader("Content-Type", "text/json;charset=utf-8");
+                        // 直接返回给前端  ,返回给前端的统一的都是JSON
+                        PrintWriter writer = resp.getWriter();
+                        writer.write(s);
+                        return;
+                    }
+                    Claim userType = stringClaimMap.get("userType");
+                    Integer uType = userType.asInt();
+                    //非管理员 禁止
+                    if (uType != BrandConstant.USER_TYPE_ADMIN){
+                        result.setCode(403);
+                        result.setMsg("非法访问");
+                        String s = JSON.toJSONString(result);
+                        resp.setHeader("Content-Type", "text/json;charset=utf-8");
+                        // 直接返回给前端  ,返回给前端的统一的都是JSON
+                        PrintWriter writer = resp.getWriter();
                         writer.write(s);
                         return;
                     }
@@ -56,6 +73,9 @@ public class Token implements Filter {
                     result.setCode(403);
                     result.setMsg("非法访问");
                     String s = JSON.toJSONString(result);
+                    resp.setHeader("Content-Type", "text/json;charset=utf-8");
+                    // 直接返回给前端  ,返回给前端的统一的都是JSON
+                    PrintWriter writer = resp.getWriter();
                     writer.write(s);
                     return;
                 }

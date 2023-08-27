@@ -7,6 +7,8 @@
         <result property="id" column="id"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>
+        <result property="userType" column="user_type"/>
+
     </resultMap>
     <insert id="addUser">
         insert into user(username, password)
