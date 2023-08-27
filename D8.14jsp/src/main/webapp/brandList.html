@@ -221,7 +221,8 @@ total: 总记录条数
                 }).then(function (resp) {
                     //当后端接口返回数据后，用哪个方法来接收  匿名方法
                     // 参数resp 代表 来自接口返回的数据
-                    _this.myTableData = resp.data;
+                    _this.myTableData = resp.data.brands;
+                    _this.totalCnts = resp.data.cnt;
                 })
             },
             //新增

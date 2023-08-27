@@ -28,12 +28,12 @@ public class BrandService {
         sqlSession.close();
         return brands;
     }
-    public List<Brand> searchpage(Integer pageNo, Integer pageSize){
+    public List<Brand> searchpage(Integer pageNo, Integer pageSize,Brand brand){
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         //limit 的第一个参数
         int start = (pageNo - 1) * pageSize;
-        List<Brand> brands = brandMapper.searchpage(start, pageSize);
+        List<Brand> brands = brandMapper.searchpage(brand);
         sqlSession.close();
         return brands;
     }
@@ -46,10 +46,13 @@ public class BrandService {
         return count;
     }
 
-    public int searchCount(){
+    public int searchCount(Brand brand){
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
-        int count = brandMapper.searchCount();
+        //limit 的第一个参数
+        int start = (brand.getPageNo() - 1) * brand.getPageSize();
+        brand.setPageNo(start);
+        int count = brandMapper.searchCount( brand);
         sqlSession.close();
         return count;
     }

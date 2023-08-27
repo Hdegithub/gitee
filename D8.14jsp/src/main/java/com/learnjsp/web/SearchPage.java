@@ -34,12 +34,14 @@ public class SearchPage extends HttpServlet {
         int pNo = Integer.parseInt(pageNo);
         int pageSize = Integer.parseInt(cntPerPage);
 
-//        ServletInputStream inputStream = req.getInputStream();
-//        BufferedReader br=new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
-//        String line = br.readLine();
-//        Brand brand = JSON.parseObject(line, Brand.class);
-        List<Brand> searchpage = brandService.searchpage(pNo, pageSize);
-        int count = brandService.searchCount()
+        ServletInputStream inputStream = req.getInputStream();
+        BufferedReader br=new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+        String line = br.readLine();
+        Brand brand = JSON.parseObject(line, Brand.class);
+        brand.setPageNo(pNo);
+        brand.setPageSize(pageSize);
+        List<Brand> searchpage = brandService.searchpage(pNo, pageSize,brand);
+        int count = brandService.searchCount(brand)
                 ;
         JSONObject jsonObject = new JSONObject();
 

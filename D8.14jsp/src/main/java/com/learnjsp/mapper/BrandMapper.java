@@ -12,8 +12,8 @@ public interface BrandMapper {
 
     int selectAllCount();
 
-    List<Brand> searchpage(@Param("start") Integer start, @Param("pageSize") Integer pageSize);
-    int searchCount();
+    List<Brand> searchpage(@Param("brand") Brand brand);
+    int searchCount(@Param("brand") Brand brand);
 
     int insertBrand(Brand brand);
 

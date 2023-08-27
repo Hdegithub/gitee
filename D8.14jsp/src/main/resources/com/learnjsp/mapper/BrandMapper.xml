@@ -54,23 +54,47 @@
         select count(*)
         from tb_brand
     </select>
-    <select id="searchpage" resultType="com.learnjsp.pojo.Brand">
-        select *
-        from tb_brand
-        where brand_name like concat('%', #{brandName}, '%')
-           or company_name like concat('%', #{companyName}, '%')
-           or status like concat('%', #{status}, '%')
-            limit #{start}
-            , #{pageSize}
+    <select id="searchpage" resultMap="brandMap">
+        <where>
+            <if test="brand.brandName != null and brand.brandName != '' ">
+                or  brand_name like concat('%',#{brand.brandName},'%')
+            </if>
+
+            <if test="brand.companyName != null and brand.companyName != '' ">
+                or  company_name like concat('%',#{brand.companyName},'%')
+            </if>
+
+            <if test="brand.status != null">
+                or  status = #{brand.status}
+            </if>
+
+            <if test="brand.typeId != null">
+                or  type_id = #{brand.typeId}
+            </if>
+
+        </where>
+        LIMIT #{brand.pageNo}, #{brand.pageSize};
     </select>
     <select id="searchCount" resultType="java.lang.Integer">
-        select count(*)
-        from tb_brand
-        where brand_name like concat('%', #{brandName}, '%')
-           or company_name like concat('%', #{companyName}, '%')
-           or status like concat('%', #{status}, '%')
-            limit #{start}
-            , #{pageSize}
+        select count(*) from tb_brand
+        <where>
+            <if test="brand.brandName != null and brand.brandName != '' ">
+                or  brand_name like concat('%',#{brand.brandName},'%')
+            </if>
+
+            <if test="brand.companyName != null and brand.companyName != '' ">
+                or  brand.company_name like concat('%',#{brand.companyName},'%')
+            </if>
+
+            <if test="brand.status != null">
+                or  status = #{brand.status}
+            </if>
+
+            <if test="brand.typeId != null">
+                or  type_id = #{brand.typeId}
+            </if>
+
+        </where>
     </select>
 
 </mapper>
