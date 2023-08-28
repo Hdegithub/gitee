@@ -25,4 +25,5 @@ public interface BrandMapper {
 
     List<Brand> selectByname(Brand brand);
 
+    int deleteByIds(@Param("myIds") Integer[] ids);
 }

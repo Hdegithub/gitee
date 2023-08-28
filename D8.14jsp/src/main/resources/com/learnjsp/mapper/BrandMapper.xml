@@ -29,6 +29,12 @@
         from tb_brand
         where id = #{id}
     </delete>
+    <delete id="deleteByIds">
+        delete from tb_brand where id in
+        <foreach collection="myIds" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 
     <select id="selectAll" resultMap="brandMap">
         select *

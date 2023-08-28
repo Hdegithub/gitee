@@ -18,8 +18,14 @@ public class BrandService {
 //        sqlSession.close();
 //        return brands;
 //    }
-
-    public List<Brand> getAllBrands(Integer pageNo, Integer pageSize){
+    public int deleteByIds(Integer[] ids) {
+        SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
+        BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
+        int i = brandMapper.deleteByIds(ids);
+        sqlSession.close();
+        return i;
+    }
+    public List<Brand> getAllBrands(Integer pageNo, Integer pageSize) {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         //limit 的第一个参数
@@ -28,7 +34,8 @@ public class BrandService {
         sqlSession.close();
         return brands;
     }
-    public List<Brand> searchpage(Integer pageNo, Integer pageSize,Brand brand){
+
+    public List<Brand> searchpage(Integer pageNo, Integer pageSize, Brand brand) {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         //limit 的第一个参数
@@ -38,7 +45,7 @@ public class BrandService {
         return brands;
     }
 
-    public int getAllBrandsCount(){
+    public int getAllBrandsCount() {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         int count = brandMapper.selectAllCount();
@@ -46,13 +53,13 @@ public class BrandService {
         return count;
     }
 
-    public int searchCount(Brand brand){
+    public int searchCount(Brand brand) {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         //limit 的第一个参数
         int start = (brand.getPageNo() - 1) * brand.getPageSize();
         brand.setPageNo(start);
-        int count = brandMapper.searchCount( brand);
+        int count = brandMapper.searchCount(brand);
         sqlSession.close();
         return count;
     }
@@ -80,7 +87,7 @@ public class BrandService {
         return i;
     }
 
-    public int delBrand(Integer id) {
+    public int deleteById(Integer id) {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);
         int i = brandMapper.deleteById(id);
