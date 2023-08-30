@@ -1,24 +1,25 @@
 package com.learnspring.service.impl;
 
 
-import com.learnspring.dao.BookDao;
-import com.learnspring.domain.Book;
-import com.learnspring.service.BookService;
+import com.learnspring.dao.TypeMapper;
+import com.learnspring.domain.Type;
+import com.learnspring.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 //@Component("bookService")
 @Service("bookService")
 @Scope("singleton")
-public class BookServiceImpl implements BookService {
+public class TypeServiceImpl implements TypeService {
     //声明依赖
     @Autowired
 //    明确的指定 要依赖哪个bean
 //    @Qualifier("bookMapper")
-    private BookDao bookDao;
+    private TypeMapper bookDao;
 
     @Autowired
     private DataSource dataSource;
@@ -37,11 +38,28 @@ public class BookServiceImpl implements BookService {
 //        }
         System.out.println(" BookServiceImpl show");
 //        bookMapper.test();
-        Book book=new Book();
-        book.setTypeId(2);
-        book.setTypeName("玩具");
-        bookDao.save(book);
+        Type type =new Type();
+        type.setTypeId(3);
+        type.setTypeName("玩具");
+        bookDao.save(type);
 
+    }
+
+    @Override
+    public List<Type> getAll() {
+        return bookDao.selectAll();
+    }
+
+    @Override
+    public int delete(Integer id) {
+        int delete = bookDao.delete(id);
+        return delete;
+    }
+
+    @Override
+    public int update(Type type) {
+        int update = bookDao.update(type);
+        return update;
     }
     //在构造器执行之后 执行此方法
 //    @PostConstruct

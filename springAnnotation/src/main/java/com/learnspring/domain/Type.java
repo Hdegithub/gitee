@@ -1,9 +1,17 @@
 package com.learnspring.domain;
 
-public class Book {
+public class Type {
     //type_id, type_name
     private Integer typeId;
     private String typeName;
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "typeId=" + typeId +
+                ", typeName='" + typeName + '\'' +
+                '}';
+    }
 
     public Integer getTypeId() {
         return typeId;
