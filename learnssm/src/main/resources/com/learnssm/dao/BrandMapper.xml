@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learnssm.dao.BrandMapper">
+
+    <resultMap id="brandMap" type="com.learnssm.domain.Brand">
+        <id property="id" column="id"/>
+        <result property="brandName" column="brand_name"/>
+        <result property="companyName" column="company_name"/>
+    </resultMap>
+    <insert id="insertBrand">
+        insert into tb_brand( brand_name, company_name, ordered, description, status, type_id)
+        values(#{brandName}, #{companyName}, #{ordered}, #{description}, #{status}, 1)
+    </insert>
+    <update id="updateBrandById">
+
+    update tb_brand set brand_name = #{brandName}, company_name=#{companyName}
+    ,ordered=#{ordered}, description=#{description}, status=#{status}
+    where id = #{id}
+    </update>
+    <delete id="deleteById">
+        delete from tb_brand where id = #{id}
+    </delete>
+
+    <select id="selectAll" resultMap="brandMap">
+        select * from tb_brand
+    </select>
+    <select id="selectById" resultMap="brandMap">
+        select * from tb_brand where id = #{id}
+    </select>
+</mapper>
