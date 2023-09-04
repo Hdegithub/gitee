@@ -1,6 +1,7 @@
 package com.learnssm.controller;
 
 import com.learnssm.domain.Brand;
+import com.learnssm.exception.BusinessException;
 import com.learnssm.service.BrandService;
 import com.learnssm.utils.Code;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +68,9 @@ public class BrandController {
     //增加数据
     @RequestMapping("/insert")
     public int insert(@RequestBody Brand brand) {
+        if (brand.getBrandName()==null){
+            throw  new BusinessException(Code.GET_ERR, "品牌名不能为空");
+        }
         return brandService.insertBrand(brand);
     }
 }
