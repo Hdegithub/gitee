@@ -10,23 +10,104 @@
         <result property="companyName" column="company_name"/>
     </resultMap>
     <insert id="insertBrand">
-        insert into tb_brand( brand_name, company_name, ordered, description, status, type_id)
-        values(#{brandName}, #{companyName}, #{ordered}, #{description}, #{status}, 1)
+        insert into tb_brand(brand_name, company_name, ordered, description, status, type_id)
+        values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status}, 1)
     </insert>
     <update id="updateBrandById">
-
-    update tb_brand set brand_name = #{brandName}, company_name=#{companyName}
-    ,ordered=#{ordered}, description=#{description}, status=#{status}
-    where id = #{id}
+        update tb_brand
+        <set>
+            <if test="brandName != null ">
+                brand_name = #{brandName},
+            </if>
+            <if test="companyName != null ">
+                company_name=#{companyName}
+            </if>
+            <if test="ordered != null ">
+                ordered=#{ordered}
+            </if>
+            <if test="description != null ">
+                description=#{description}
+            </if>
+            <if test="status != null ">
+                status=#{status}
+            </if>
+        </set>
+        where id = #{id}
     </update>
     <delete id="deleteById">
-        delete from tb_brand where id = #{id}
+        delete
+        from tb_brand
+        where id = #{id}
     </delete>
 
     <select id="selectAll" resultMap="brandMap">
-        select * from tb_brand
+        SELECT *
+        FROM tb_brand brd,
+             tb_type typ
+        WHERE brd.type_id = typ.type_id;
     </select>
     <select id="selectById" resultMap="brandMap">
-        select * from tb_brand where id = #{id}
+        select *
+        from tb_brand
+        where id = #{id}
+    </select>
+    <select id="getById" resultMap="brandMap">
+        select *
+        from tb_brand
+        where id = #{id};
+    </select>
+    <select id="queryBrand" resultMap="brandMap">
+        select * from tb_brand
+        <where>
+            <if test="brand.brandName != null and brand.brandName != '' ">
+                or brand_name like concat('%',#{brand.brandName},'%')
+            </if>
+
+            <if test="brand.companyName != null and brand.companyName != '' ">
+                or company_name like concat('%',#{brand.companyName},'%')
+            </if>
+            <if test="brand.ordered != null">
+                or ordered = #{brand.ordered}
+            </if>
+
+            <if test="brand.description != null and brand.description != '' ">
+                or description like concat('%',#{brand.description},'%')
+            </if>
+
+            <if test="brand.status != null">
+                or status = #{brand.status}
+            </if>
+
+            <if test="brand.typeId != null">
+                or type_id = #{brand.typeId}
+            </if>
+        </where>
+    </select>
+    <select id="queryBrandCount" resultType="java.lang.Integer">
+        select count(*) from tb_brand
+        <where>
+            <if test="brand.brandName != null and brand.brandName != '' ">
+                or brand_name like concat('%',#{brand.brandName},'%')
+            </if>
+
+            <if test="brand.companyName != null and brand.companyName != '' ">
+                or company_name like concat('%',#{brand.companyName},'%')
+            </if>
+            <if test="brand.ordered != null">
+                or ordered = #{brand.ordered}
+            </if>
+
+            <if test="brand.description != null and brand.description != '' ">
+                or description like concat('%',#{brand.description},'%')
+            </if>
+
+            <if test="brand.status != null">
+                or status = #{brand.status}
+            </if>
+
+            <if test="brand.typeId != null">
+                or type_id = #{brand.typeId}
+            </if>
+        </where>
     </select>
 </mapper>

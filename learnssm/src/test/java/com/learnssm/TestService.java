@@ -18,12 +18,23 @@ import java.util.List;
 public class TestService {
     @Autowired
     private BrandService brandService;
-    //test case 测试用例
+
     @Test
-    public void testGetAll(){
+    public void testGetAll() {
         //验证Spring 和Mybatis 整合ok
         List<Brand> all = brandService.getAll();
         Assert.assertNotNull(all);
         Assert.assertTrue(all.size() > 0);
+    }
+
+    @Test
+    public void testGetById() {
+        Brand brand = brandService.getById(1);
+        System.out.println(brand);
+    }
+    @Test
+    public void testdelete(){
+        int delete = brandService.delete(1);
+        System.out.println(delete);
     }
 }
