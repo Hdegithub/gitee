@@ -3,6 +3,8 @@ package com.newstest.mapper;
 import com.newstest.domain.News;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
 * @author 29484
 * @description 针对表【tb_news】的数据库操作Mapper
@@ -23,5 +25,9 @@ public interface NewsMapper {
     int updateByPrimaryKeySelective(News record);
 
     int updateByPrimaryKey(News record);
+
+    List<News> selectAll();
+
+    News selectById(Long id);
 
 }
