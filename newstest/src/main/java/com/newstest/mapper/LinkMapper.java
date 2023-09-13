@@ -1,6 +1,7 @@
 package com.newstest.mapper;
 
 import com.newstest.domain.Link;
+import com.newstest.utils.PageQueryUtil;
 
 /**
 * @author 29484
@@ -22,4 +23,5 @@ public interface LinkMapper {
 
     int updateByPrimaryKey(Link record);
 
+    int getTotalLinks(PageQueryUtil pageUtil);
 }

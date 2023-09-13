@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface NewService {
     List<News> selectAll();
+
+    int getTotalNews();
 }

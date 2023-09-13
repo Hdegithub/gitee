@@ -1,6 +1,7 @@
 package com.newstest.mapper;
 
 import com.newstest.domain.NewsTag;
+import com.newstest.utils.PageQueryUtil;
 
 /**
 * @author 29484
@@ -22,4 +23,5 @@ public interface NewsTagMapper {
 
     int updateByPrimaryKey(NewsTag record);
 
+    int getTotalTags(PageQueryUtil pageUtil);
 }

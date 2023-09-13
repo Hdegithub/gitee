@@ -200,4 +200,17 @@
         WHERE nw.news_id = #{newsId}
         ORDER BY nw.comment_create_time DESC
     </select>
+    <select id="getTotalNews" parameterType="Map" resultType="int">
+        select count(*) from tb_news
+        where is_deleted=0
+        <if test="keyword!=null">
+            AND (news_title like CONCAT('%',#{keyword},'%' ) or news_category_name like CONCAT('%',#{keyword},'%' ))
+        </if>
+        <if test="newsStatus!=null">
+            AND news_status = #{newsStatus}
+        </if>
+        <if test="newsCategoryId!=null">
+            AND news_category_id = #{newsCategoryId}
+        </if>
+    </select>
 </mapper>

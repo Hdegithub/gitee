@@ -2,6 +2,8 @@ package com.newstest.mapper;
 
 import com.newstest.domain.NewsComment;
 
+import java.util.Map;
+
 /**
 * @author 29484
 * @description 针对表【tb_news_comment】的数据库操作Mapper
@@ -22,4 +24,5 @@ public interface NewsCommentMapper {
 
     int updateByPrimaryKey(NewsComment record);
 
+    int getTotalNewsComments(Map map);
 }

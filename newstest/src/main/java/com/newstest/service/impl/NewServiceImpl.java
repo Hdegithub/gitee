@@ -18,4 +18,9 @@ public class NewServiceImpl implements NewService {
     public List<News> selectAll() {
         return newsMapper.selectAll();
     }
+
+    @Override
+    public int getTotalNews() {
+        return newsMapper.getTotalNews(null);
+    }
 }
