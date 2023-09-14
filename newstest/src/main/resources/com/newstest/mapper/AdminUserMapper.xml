@@ -23,6 +23,12 @@
         from tb_admin_user
         where  admin_user_id = #{adminUserId,jdbcType=INTEGER} 
     </select>
+    <select id="login" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_admin_user
+        where login_user_name = #{userName,jdbcType=VARCHAR} AND login_password=#{password,jdbcType=VARCHAR} AND locked = 0
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from tb_admin_user

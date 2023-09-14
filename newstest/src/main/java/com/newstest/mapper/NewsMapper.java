@@ -3,6 +3,7 @@ package com.newstest.mapper;
 import com.newstest.domain.News;
 import com.newstest.utils.PageQueryUtil;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -32,4 +33,8 @@ public interface NewsMapper {
     News selectById(Long id);
 
     int getTotalNews(PageQueryUtil pageUtil);
+
+    List<News>selectBypage(@Param("start") Integer start, @Param("recordSize") Integer recordSize);
+
+    int selectNewsCount();
 }

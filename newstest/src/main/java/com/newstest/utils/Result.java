@@ -1,4 +1,4 @@
-package com.newstest.controller;
+package com.newstest.utils;
 
 /**
  * 数据载体
