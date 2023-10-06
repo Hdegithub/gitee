@@ -14,6 +14,7 @@ public interface TypeMapper {
     List<Type> selectAll();
 
     int delete(Integer id);
+
     //更新   参数(TYpe)
     int update(Type type);
 }

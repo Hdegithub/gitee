@@ -1,6 +1,6 @@
 package com.learnd13;
 
-public class NewPhone extends Phone{
+public class NewPhone extends Phone {
     @Override
     public void call() {
         super.call();

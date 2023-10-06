@@ -7,10 +7,10 @@
 </head>
 <body>
 
-    <%--
-        JSTL 标签
-        c:if：来完成逻辑判断，替换java  if else
-    --%>
+<%--
+    JSTL 标签
+    c:if：来完成逻辑判断，替换java  if else
+--%>
 <%--
 
     <c:if test="true">
@@ -24,13 +24,13 @@
     test测试 status变量 是否==1
     如果==1 ，显示启用
 --%>
-    <c:if test="${status ==1}">
-        启用
-    </c:if>
+<c:if test="${status ==1}">
+    启用
+</c:if>
 <%-- 为了 在JSP中不写java代码--%>
-    <c:if test="${status ==0}">
-        禁用
-    </c:if>
+<c:if test="${status ==0}">
+    禁用
+</c:if>
 
 </body>
 </html>

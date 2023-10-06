@@ -1,17 +1,18 @@
 public class Student {
     private String xuehao;
-    private  String name;
-    private  String age;
-    private  String banji;
+    private String name;
+    private String age;
+    private String banji;
 
-public Student(){
-}
-public Student( String xuehao,String name,String age,String banji){
-    this.xuehao=xuehao;
-    this.name=name;
-    this.age=age;
-    this.banji=banji;
-}
+    public Student() {
+    }
+
+    public Student(String xuehao, String name, String age, String banji) {
+        this.xuehao = xuehao;
+        this.name = name;
+        this.age = age;
+        this.banji = banji;
+    }
 
     public String getXuehao() {
         return xuehao;

@@ -11,7 +11,7 @@ public class Test01 {
         student.name = "何";
         student.banji = "三年2班";
 
-        Test test=new Test();
-        test .daan=100;
+        Test test = new Test();
+        test.daan = 100;
     }
 }

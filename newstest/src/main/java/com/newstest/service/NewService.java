@@ -11,5 +11,5 @@ public interface NewService {
     int getTotalNews();
 
     //查询带有分页的新闻列表
-    PageResult getPageNews(Integer pageNO,Integer pageSize);
+    PageResult getPageNews(Integer pageNO, Integer pageSize);
 }

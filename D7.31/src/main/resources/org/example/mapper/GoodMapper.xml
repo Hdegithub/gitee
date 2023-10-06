@@ -53,10 +53,10 @@
         select *
         from tb_goods
         where id
-            <![CDATA[
+        <![CDATA[
             <
         ]]>
-            #{id}
+        #{id}
     </select>
     <select id="selectByConditionDynamic" resultMap="goodResultMap">
         select * from tb_goods

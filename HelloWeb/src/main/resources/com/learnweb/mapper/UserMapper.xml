@@ -24,7 +24,7 @@
         SELECT COUNT(*) AS cnt
         FROM tb_user
         WHERE username = #{username}
-          AND password = #{password};
+        AND password = #{password};
     </select>
     <select id="selectByUname" resultType="java.lang.Integer">
         SELECT COUNT(*) AS cnt

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TypeService {
 
-    public List<Type> selectAll(){
+    public List<Type> selectAll() {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         TypeMapper mapper = sqlSession.getMapper(TypeMapper.class);
         List<Type> typeList = mapper.selectAll();

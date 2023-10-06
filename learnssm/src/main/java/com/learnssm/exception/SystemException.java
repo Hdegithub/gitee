@@ -8,7 +8,7 @@ package com.learnssm.exception;
  * 系统异常
  * 子类 用来代表 系统发生问题的时候，抛出异常
  */
-public class SystemException extends RuntimeException{
+public class SystemException extends RuntimeException {
     //自定义属性，异常的编码
     private Integer code;
 

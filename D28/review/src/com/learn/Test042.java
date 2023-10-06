@@ -37,7 +37,7 @@ public class Test042 {
             worldCupMap.put(startIndex, winner);
             startIndex += 4;
         }
-        while(true) {
+        while (true) {
             System.out.println("请输入年份:");
             Scanner scanner = new Scanner(System.in);
             int inputYear = scanner.nextInt();

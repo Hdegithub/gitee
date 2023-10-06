@@ -12,7 +12,7 @@ import java.net.URL;
  */
 public class MyFrame extends JFrame {
 
-    public MyFrame(){
+    public MyFrame() {
         File f = new File(getClass().getResource("/").getPath());
         System.out.println(f);
         URL imgUrl = MyFrame.class.getResource("/Snipaste_2023-07-13_14-27-53.png");
@@ -27,7 +27,7 @@ public class MyFrame extends JFrame {
         passwordField.setEchoChar('*');
         JButton btn = new JButton("确认");
 
-        Container container =  getContentPane();
+        Container container = getContentPane();
 
         container.add(textField, BorderLayout.NORTH);
         btn.setIcon(imageIcon);

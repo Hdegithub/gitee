@@ -5,10 +5,7 @@ import java.util.List;
 
 /**
  * 分页工具类
- *  数据载体
- *
- *
- 
+ * 数据载体
  */
 public class PageResult implements Serializable {
 

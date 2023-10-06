@@ -18,7 +18,7 @@ public class HomeWork07 {
         int suoyin = Arrays.binarySearch(nums, max);
 
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i]!=max&&max >= nums[i] * 2) {
+            if (nums[i] != max && max >= nums[i] * 2) {
                 System.out.println(suoyin);
                 break;
             } else if (max < nums[i] * 2) {

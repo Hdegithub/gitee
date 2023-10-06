@@ -19,7 +19,7 @@ public class CommonController {
         //设置内容类型是image图片  png
         httpServletResponse.setContentType("image/png");
 
-        ShearCaptcha shearCaptcha= CaptchaUtil.createShearCaptcha(150, 30, 4, 5);
+        ShearCaptcha shearCaptcha = CaptchaUtil.createShearCaptcha(150, 30, 4, 5);
 
         // 验证码存入session
         httpServletRequest.getSession().setAttribute("verifyCode", shearCaptcha);

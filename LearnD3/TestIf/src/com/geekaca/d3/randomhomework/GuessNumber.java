@@ -28,7 +28,7 @@ public class GuessNumber {
             System.out.println("请输入：");
             int input = scanner.nextInt();
             if (input > answer) {
-                System.out.println("猜测大了，请重新输入 ,剩余次数："+ jihui);
+                System.out.println("猜测大了，请重新输入 ,剩余次数：" + jihui);
             } else if (input < answer) {
                 System.out.println("猜测小了，请再次尝试 , 剩余次数:" + jihui);
             } else {

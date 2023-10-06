@@ -3,11 +3,11 @@ package com.learnssm.exception;
 /**
  * 业务异常
  * 自定义异常
- *
+ * <p>
  * 用来携带 异常的描述信息
  * 和编码
  */
-public class BusinessException extends RuntimeException{
+public class BusinessException extends RuntimeException {
     private Integer code;
 
     public Integer getCode() {

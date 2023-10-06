@@ -4,8 +4,8 @@ import java.io.*;
 
 public class ReviewStream {
     public static void main(String[] args) {
-        File file=new File("D:\\Java单词.txt");
-        File file1=new File("D:\\Review.txt");
+        File file = new File("D:\\Java单词.txt");
+        File file1 = new File("D:\\Review.txt");
         if (file.exists()) {
             try (FileInputStream fis = new FileInputStream(file);
                  FileOutputStream fos = new FileOutputStream(file1);

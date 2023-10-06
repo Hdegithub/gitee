@@ -18,7 +18,7 @@ public class HomeWork02 {
                     if (file.isFile()) {
                         //遇到文件判断名字
                         if (file.getName().contains(tosearchName)) {
-                             System.out.println("找到了" + file.getAbsolutePath());
+                            System.out.println("找到了" + file.getAbsolutePath());
                             copyFileToDir(file, targetDir);
                         }
                     } else if (file.isDirectory()) {

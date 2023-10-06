@@ -9,15 +9,16 @@ import java.net.Socket;
 /**
  * 定义一个单独的线程类，
  * 为了用他和 连接上来的客户端 进行通信
- *
+ * <p>
  * 是一对一关系
  * 有一个客户端的连接，就创建一个线程
- *
+ * <p>
  * 相当于一个陪同人
  */
-public class ServerThread extends Thread{
+public class ServerThread extends Thread {
     private Socket socket;
-    public ServerThread(Socket socket){
+
+    public ServerThread(Socket socket) {
         this.socket = socket;
     }
 

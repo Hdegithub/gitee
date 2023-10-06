@@ -94,7 +94,7 @@ public class HomeWork {
         try (Connection conn = dataSource.getConnection()) {
             String sql = "delete from tb_brand where id=?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1,id);
+            pstmt.setInt(1, id);
             int i = pstmt.executeUpdate();
             return i;
         } catch (SQLException throwables) {

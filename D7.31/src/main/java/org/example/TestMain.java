@@ -28,7 +28,8 @@ public class TestMain {
         //testSelectIds();
         testLogin();
     }
-    private static void testLogin(){
+
+    private static void testLogin() {
         SqlSession sqlSession = openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = new User();
@@ -40,9 +41,9 @@ public class TestMain {
         user.setName(username);
         user.setPwd(password);
         int cnt = userMapper.Login(user);
-        if (cnt > 0){
+        if (cnt > 0) {
             System.out.println("登录成功");
-        }else{
+        } else {
             System.out.println("登陆失败");
         }
     }
@@ -50,7 +51,7 @@ public class TestMain {
     private static void testSelectIds() {
         SqlSession sqlSession = openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        int[] ids = {26,27};
+        int[] ids = {26, 27};
         List<User> userList = userMapper.selectUser(ids);
         userList.forEach(user -> System.out.println(user));
     }

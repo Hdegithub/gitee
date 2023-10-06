@@ -4,7 +4,7 @@ public class Employee {
     private String name;
     private char sex;
     private double salary;
-    private  double bonus;
+    private double bonus;
     private String punish;
 
     @Override

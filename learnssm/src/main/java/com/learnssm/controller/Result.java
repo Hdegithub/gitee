@@ -2,7 +2,7 @@ package com.learnssm.controller;
 
 /**
  * 数据载体
- *
+ * <p>
  * 统一接口返回数据格式
  */
 public class Result {

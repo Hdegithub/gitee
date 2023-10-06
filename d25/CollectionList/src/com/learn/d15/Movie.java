@@ -1,6 +1,7 @@
 package com.learn.d15;
 
-public class Movie {private String name;
+public class Movie {
+    private String name;
     //评分
     private double score;
     private String actor;

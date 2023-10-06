@@ -10,7 +10,7 @@ public class MybatisConfig {
 
 
     @Bean
-    public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource){
+    public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource) {
         SqlSessionFactoryBean ssfb = new SqlSessionFactoryBean();
         ssfb.setTypeAliasesPackage("com.learnaop.domain");
         ssfb.setDataSource(dataSource);
@@ -18,7 +18,7 @@ public class MybatisConfig {
     }
 
     @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer(){
+    public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer msc = new MapperScannerConfigurer();
         msc.setBasePackage("com.learnaop.dao");
         return msc;

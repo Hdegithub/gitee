@@ -14,7 +14,6 @@ public class Student {
     private String address;
 
 
-
     public Student(String sid, String name, LocalDate birth, String address) {
         this.sid = sid;
         this.name = name;

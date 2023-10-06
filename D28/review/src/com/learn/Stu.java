@@ -18,7 +18,6 @@ public class Stu {
     }
 
 
-
     public String getName() {
         return name;
     }
@@ -30,6 +29,7 @@ public class Stu {
     public void setName(String name) {
         this.name = name;
     }
+
     @Override
     public String toString() {
         return "Stu{" +

@@ -6,14 +6,14 @@
 
     <resultMap id="typeMap" type="Type">
         <id property="typeId" column="type_id"/>
-        <result property="typeName" column="type_name" />
+        <result property="typeName" column="type_name"/>
     </resultMap>
 
 
     <select id="selectAll" resultMap="typeMap">
         SELECT *
         FROM
-             tb_type
+        tb_type
 
     </select>
 

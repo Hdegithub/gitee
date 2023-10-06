@@ -23,12 +23,13 @@ public class JdbcConfig {
     /**
      * 手动创建 一个连接池的对象
      * 交给Spring容器管理
-     *
+     * <p>
      * 后续，如果Spring发现哪里需要用，依赖连接池对象，就会直接使用这个对象(单例的)
+     *
      * @return
      */
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         //创建数据源  连接池  Druid
         DruidDataSource ds = new DruidDataSource();
         ds.setDriverClassName(driver);

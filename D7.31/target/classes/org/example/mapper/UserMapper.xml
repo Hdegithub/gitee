@@ -65,7 +65,7 @@
         select count(*)
         from t_user
         where name = #{name}
-          and pwd = #{pwd};
+        and pwd = #{pwd};
     </select>
 
 </mapper>

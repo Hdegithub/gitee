@@ -21,7 +21,7 @@ public class HomeWork02 {
             }
         }
         map.forEach((Character character, Integer count) -> {
-            System.out.println(character + "出现了" + count+"次");
+            System.out.println(character + "出现了" + count + "次");
         });
     }
 }

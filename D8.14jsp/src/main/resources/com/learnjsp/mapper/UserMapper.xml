@@ -20,14 +20,14 @@
         SELECT count(*)
         FROM user
         WHERE username = #{username}
-          AND password = #{password};
+        AND password = #{password};
 
     </select>
     <select id="selectUserInfo" resultMap="myUser">
         SELECT *
-        FROM  user
+        FROM user
         WHERE username = #{username}
-          AND password = #{password};
+        AND password = #{password};
     </select>
 
 </mapper>

@@ -6,7 +6,7 @@ import java.util.TreeSet;
 public class LearnTreeSet {
     public static void main(String[] args) {
 
-        Set<Integer> set1=new TreeSet<>();
+        Set<Integer> set1 = new TreeSet<>();
         set1.add(10);
         set1.add(20);
         set1.add(50);

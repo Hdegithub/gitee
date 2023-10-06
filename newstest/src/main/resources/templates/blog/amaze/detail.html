@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--    <title th:text="${configurations.get('websiteName')}+' | '+${pageName}">详情页</title>-->
-<!--    <meta name="description" th:content="${configurations.get('websiteDescription')}">-->
-<!--    <meta name="viewport" content="width=device-width">-->
-<!--    <link rel="shortcut icon" th:href="@{${configurations.get('websiteIcon')}}"/>-->
+    <!--    <title th:text="${configurations.get('websiteName')}+' | '+${pageName}">详情页</title>-->
+    <!--    <meta name="description" th:content="${configurations.get('websiteDescription')}">-->
+    <!--    <meta name="viewport" content="width=device-width">-->
+    <!--    <link rel="shortcut icon" th:href="@{${configurations.get('websiteIcon')}}"/>-->
     <link rel="stylesheet" th:href="@{/blog/amaze/css/base.css}">
     <!-- highlight -->
     <link rel="stylesheet" th:href="@{/blog/plugins/highlight/styles/paraiso-light.css}">
@@ -14,6 +14,7 @@
         .hljs {
             background: none;
         }
+
         pre code {
             white-space: pre;
         }
@@ -91,10 +92,10 @@
                 <th:block th:unless="${#strings.isEmpty(comment.replyBody)}">
                     <article class="comment reply">
                         <header class="clearfix">
-<!--                            <img th:src="@{${configurations.get('yourAvatar')}}"-->
-<!--                                 style="float: left;border-radius: 100px;width: 50px;">-->
+                            <!--                            <img th:src="@{${configurations.get('yourAvatar')}}"-->
+                            <!--                                 style="float: left;border-radius: 100px;width: 50px;">-->
                             <div class="meta2">
-<!--                                <h3 th:text="${configurations.get('yourName')}"></h3>-->
+                                <!--                                <h3 th:text="${configurations.get('yourName')}"></h3>-->
                                 <span class="date">
                                         回复时间： <th:block
                                         th:text="${#dates.format(comment.replyCreateTime, 'yyyy-MM-dd HH:mm:ss')}"></th:block>

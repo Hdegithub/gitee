@@ -13,10 +13,10 @@ public class BubbleSort {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - 1 - i; j++) {
                 //如果当前元素大于后面一个元素
-                if (arr[j] > arr[j+1]){
+                if (arr[j] > arr[j + 1]) {
                     //交换
-                    int tmp = arr[j+1];
-                    arr[j+1] = arr[j];
+                    int tmp = arr[j + 1];
+                    arr[j + 1] = arr[j];
                     arr[j] = tmp;
                 }
             }

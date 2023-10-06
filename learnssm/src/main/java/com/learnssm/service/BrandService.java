@@ -1,7 +1,6 @@
 package com.learnssm.service;
 
 
-
 import com.learnssm.domain.Brand;
 import org.apache.ibatis.annotations.Param;
 

@@ -30,12 +30,12 @@ public class RandomArray {
          */
         int kele = 99;
         int qixi = 55;
-        System.out.println("kele: "+ kele + " qixi: "+ qixi);
+        System.out.println("kele: " + kele + " qixi: " + qixi);
         int tmp = 0;
         tmp = kele;
         kele = qixi;
         qixi = tmp;
-        System.out.println("kele: "+ kele + " qixi: "+ qixi);
+        System.out.println("kele: " + kele + " qixi: " + qixi);
 
     }
 }

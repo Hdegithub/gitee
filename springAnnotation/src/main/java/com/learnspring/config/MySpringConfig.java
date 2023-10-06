@@ -3,7 +3,6 @@ package com.learnspring.config;
 import org.springframework.context.annotation.*;
 
 /**
- *
  * Spring 核心配置类，作用  等同于 applicationContext.xml
  * 声明当前类为Spring配置类
  */

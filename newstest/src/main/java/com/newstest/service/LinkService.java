@@ -1,4 +1,5 @@
 package com.newstest.service;
+
 import com.newstest.domain.Link;
 import com.newstest.utils.PageQueryUtil;
 import com.newstest.utils.PageResult;

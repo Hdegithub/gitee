@@ -13,6 +13,7 @@ public interface BrandMapper {
     int selectAllCount();
 
     List<Brand> searchpage(@Param("brand") Brand brand);
+
     int searchCount(@Param("brand") Brand brand);
 
     int insertBrand(Brand brand);

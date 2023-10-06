@@ -13,7 +13,7 @@ public class ServerChat {
 
     /**
      * 定义一个集合存放所有在线的socket
-     *
+     * <p>
      * 当客户端 登陆上来（带着昵称）之后，server端需要把昵称和对应的socket 存起来
      * key: 客户端socket 对象
      * value: 相对应的 昵称
@@ -38,7 +38,7 @@ public class ServerChat {
                 new Thread(serverRunnable).start();
             }
         } catch (IOException e) {
-            System.out.println(" 发生异常 "+ e.getMessage());
+            System.out.println(" 发生异常 " + e.getMessage());
             e.printStackTrace();
         }
     }

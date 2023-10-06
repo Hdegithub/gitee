@@ -19,10 +19,10 @@ public class TestSwing {
         System.out.println(Arrays.toString(splitedStr));
     }
 
-    public void init(){
+    public void init() {
         JFrame jFrame = new JFrame("hello 窗口");
         jFrame.setBackground(Color.BLUE);
-        jFrame.setBounds(377,377, 300, 200);
+        jFrame.setBounds(377, 377, 300, 200);
         jFrame.setVisible(true);//显示出来
 
         JLabel myLabel = new JLabel("你好 界面标签");

@@ -6,10 +6,10 @@ public class PhoneTest {
         phone.call();
         phone.duanxin();
 
-        Tiger tiger=new Tiger("东北虎");
+        Tiger tiger = new Tiger("东北虎");
         tiger.run();
 
-        Bird bird=new Bird("麻雀");
+        Bird bird = new Bird("麻雀");
         bird.run();
     }
 }

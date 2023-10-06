@@ -7,9 +7,9 @@
 <%
     // 查询数据库
     List<Brand> brands = new ArrayList<Brand>();
-    brands.add(new Brand(1,"三只松鼠","三只松鼠",100,"三只松鼠，好吃不上火",1));
-    brands.add(new Brand(2,"优衣库","优衣库",200,"优衣库，服适人生",0));
-    brands.add(new Brand(3,"小米","小米科技有限公司",1000,"为发烧而生",1));
+    brands.add(new Brand(1, "三只松鼠", "三只松鼠", 100, "三只松鼠，好吃不上火", 1));
+    brands.add(new Brand(2, "优衣库", "优衣库", 200, "优衣库，服适人生", 0));
+    brands.add(new Brand(3, "小米", "小米科技有限公司", 1000, "为发烧而生", 1));
 
 %>
 
@@ -36,29 +36,35 @@
     </tr>
 
 
-
     <%
         for (int i = 0; i < brands.size(); i++) {
             Brand brand = brands.get(i);
     %>
 
     <tr align="center">
-        <td><%=brand.getId()%></td>
-        <td><%=brand.getBrandName()%></td>
-        <td><%=brand.getCompanyName()%></td>
-        <td><%=brand.getOrdered()%></td>
-        <td><%=brand.getDescription()%></td>
+        <td><%=brand.getId()%>
+        </td>
+        <td><%=brand.getBrandName()%>
+        </td>
+        <td><%=brand.getCompanyName()%>
+        </td>
+        <td><%=brand.getOrdered()%>
+        </td>
+        <td><%=brand.getDescription()%>
+        </td>
 
         <%
-            if(brand.getStatus() == 1){
+            if (brand.getStatus() == 1) {
                 //显示启用
         %>
-            <td><%="启用"%></td>
+        <td><%="启用"%>
+        </td>
         <%
-            }else {
-                // 显示禁用
+        } else {
+            // 显示禁用
         %>
-            <td><%="禁用"%></td>
+        <td><%="禁用"%>
+        </td>
         <%
             }
         %>
@@ -69,7 +75,6 @@
     <%
         }
     %>
-
 
 
 </table>

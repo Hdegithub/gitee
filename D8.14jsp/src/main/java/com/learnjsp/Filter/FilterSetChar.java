@@ -12,7 +12,7 @@ public class FilterSetChar implements Filter {
         servletRequest.setCharacterEncoding("UTF-8");
         servletResponse.setCharacterEncoding("UTF-8");
         servletResponse.setContentType("text/html;charset=UTF-8");
-        filterChain.doFilter(servletRequest,servletResponse);
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 }
 

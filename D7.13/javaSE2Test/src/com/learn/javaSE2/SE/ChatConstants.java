@@ -1,8 +1,10 @@
 package com.learn.javaSE2.SE;
 
 public class ChatConstants {
-    /** 常量 */
-    public static final int PORT = 7779 ;
+    /**
+     * 常量
+     */
+    public static final int PORT = 7779;
 
     /**
      * 用户登录
@@ -15,5 +17,5 @@ public class ChatConstants {
      */
     public static final int MSG_TYPE_CHAT = 2;
 
-    public static final String SPILIT="003197♣♣㏘♣④④♣";
+    public static final String SPILIT = "003197♣♣㏘♣④④♣";
 }

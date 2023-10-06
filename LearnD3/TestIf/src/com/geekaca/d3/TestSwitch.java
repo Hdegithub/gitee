@@ -7,7 +7,7 @@ public class TestSwitch {
         // 周二：请求大牛程序员帮忙                             周六：与王婆介绍的小芳相亲
         // 周三：今晚啤酒、龙虾、小烧烤                              周日：郁郁寡欢、准备上班。
         // 周四： 主动帮助新来的女程序解决bug
-        switch(weekDay){
+        switch (weekDay) {
             case "周一":
                 System.out.println("周一：埋头苦干，解决bug");
                 break;
@@ -26,7 +26,7 @@ public class TestSwitch {
             case "周六":
                 System.out.println("周六：与王婆介绍的小芳相亲");
                 break;
-                //不允许重复case
+            //不允许重复case
 //            case "周六":
 //                System.out.println("周日：郁郁寡欢、准备上班");
 //                break;

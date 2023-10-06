@@ -8,11 +8,11 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
-* @author 29484
-* @description 针对表【tb_news】的数据库操作Mapper
-* @createDate 2023-09-08 15:42:00
-* @Entity com.newstest.domain.TbNews
-*/
+ * @author 29484
+ * @description 针对表【tb_news】的数据库操作Mapper
+ * @createDate 2023-09-08 15:42:00
+ * @Entity com.newstest.domain.TbNews
+ */
 @Mapper
 public interface NewsMapper {
 
@@ -34,7 +34,7 @@ public interface NewsMapper {
 
     int getTotalNews(PageQueryUtil pageUtil);
 
-    List<News>selectBypage(@Param("start") Integer start, @Param("recordSize") Integer recordSize);
+    List<News> selectBypage(@Param("start") Integer start, @Param("recordSize") Integer recordSize);
 
     int selectNewsCount();
 }

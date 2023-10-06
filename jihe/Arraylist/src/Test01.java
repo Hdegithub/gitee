@@ -23,7 +23,7 @@ public class Test01 {
         while (true) {
             System.out.println("请输入名字：");
             String stuNo = scanner.next();
-            boolean iffind=false;
+            boolean iffind = false;
             for (int i = 0; i < studentslist.size(); i++) {
                 Student student = studentslist.get(i);
                 /**
@@ -32,7 +32,7 @@ public class Test01 {
                 String string = student.getName();
                 if (string.contains(stuNo)) {
                     System.out.println("找到了含有" + stuNo + "的学生：" + student.toString());
-                }else {
+                } else {
                     System.out.println("未找到含该名字的学生");
                 }
             }

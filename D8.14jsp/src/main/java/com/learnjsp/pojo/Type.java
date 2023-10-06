@@ -1,6 +1,6 @@
 package com.learnjsp.pojo;
 
-public class Type  {
+public class Type {
     // type_id, type_name
     private Integer typeId;
 

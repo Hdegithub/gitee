@@ -17,11 +17,11 @@
     </insert>
     <update id="updateBrandById">
         update tb_brand
-        set brand_name  = #{brandName}
-          , company_name=#{companyName}
-          , ordered=#{ordered}
-          , description=#{description}
-          , status=#{status}
+        set brand_name = #{brandName}
+        , company_name=#{companyName}
+        , ordered=#{ordered}
+        , description=#{description}
+        , status=#{status}
         where id = #{id}
     </update>
     <delete id="deleteById">
@@ -39,10 +39,10 @@
     <select id="selectAll" resultMap="brandMap">
         select *
         from tb_brand limit #{start}, #{pageSize}
-        --         SELECT *
---         FROM tb_brand brd,
---              tb_type typ
---         WHERE brd.type_id = typ.type_id;
+        -- SELECT *
+        -- FROM tb_brand brd,
+        -- tb_type typ
+        -- WHERE brd.type_id = typ.type_id;
     </select>
     <select id="selectById" resultMap="brandMap">
         select *
@@ -53,8 +53,8 @@
         select *
         from tb_brand
         where brand_name like concat('%', #{brandName}, '%')
-           or company_name like concat('%', #{companyName}, '%')
-           or status like concat('%', #{status}, '%');
+        or company_name like concat('%', #{companyName}, '%')
+        or status like concat('%', #{status}, '%');
     </select>
     <select id="selectAllCount" resultType="java.lang.Integer">
         select count(*)
@@ -63,19 +63,19 @@
     <select id="searchpage" resultMap="brandMap">
         <where>
             <if test="brand.brandName != null and brand.brandName != '' ">
-                or  brand_name like concat('%',#{brand.brandName},'%')
+                or brand_name like concat('%',#{brand.brandName},'%')
             </if>
 
             <if test="brand.companyName != null and brand.companyName != '' ">
-                or  company_name like concat('%',#{brand.companyName},'%')
+                or company_name like concat('%',#{brand.companyName},'%')
             </if>
 
             <if test="brand.status != null">
-                or  status = #{brand.status}
+                or status = #{brand.status}
             </if>
 
             <if test="brand.typeId != null">
-                or  type_id = #{brand.typeId}
+                or type_id = #{brand.typeId}
             </if>
 
         </where>
@@ -85,19 +85,19 @@
         select count(*) from tb_brand
         <where>
             <if test="brand.brandName != null and brand.brandName != '' ">
-                or  brand_name like concat('%',#{brand.brandName},'%')
+                or brand_name like concat('%',#{brand.brandName},'%')
             </if>
 
             <if test="brand.companyName != null and brand.companyName != '' ">
-                or  brand.company_name like concat('%',#{brand.companyName},'%')
+                or brand.company_name like concat('%',#{brand.companyName},'%')
             </if>
 
             <if test="brand.status != null">
-                or  status = #{brand.status}
+                or status = #{brand.status}
             </if>
 
             <if test="brand.typeId != null">
-                or  type_id = #{brand.typeId}
+                or type_id = #{brand.typeId}
             </if>
 
         </where>

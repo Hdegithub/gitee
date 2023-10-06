@@ -22,7 +22,7 @@ public class HomeWork03 {
             System.out.println("本息：" + threeyear);
         } else if (year == 5) {
             System.out.println("本息：" + fiveyear);
-        }else {
+        } else {
             System.out.println("期限错误");
         }
     }

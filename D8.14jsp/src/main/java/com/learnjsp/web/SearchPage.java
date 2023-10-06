@@ -25,24 +25,23 @@ public class SearchPage extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pageNo = req.getParameter("pageNo");
         String cntPerPage = req.getParameter("cntPerPage");
-        if (pageNo == null){
+        if (pageNo == null) {
             pageNo = "1";
         }
-        if (cntPerPage == null){
+        if (cntPerPage == null) {
             cntPerPage = "10";
         }
         int pNo = Integer.parseInt(pageNo);
         int pageSize = Integer.parseInt(cntPerPage);
 
         ServletInputStream inputStream = req.getInputStream();
-        BufferedReader br=new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
         String line = br.readLine();
         Brand brand = JSON.parseObject(line, Brand.class);
         brand.setPageNo(pNo);
         brand.setPageSize(pageSize);
-        List<Brand> searchpage = brandService.searchpage(pNo, pageSize,brand);
-        int count = brandService.searchCount(brand)
-                ;
+        List<Brand> searchpage = brandService.searchpage(pNo, pageSize, brand);
+        int count = brandService.searchCount(brand);
         JSONObject jsonObject = new JSONObject();
 
         jsonObject.put("cnt", count);

@@ -12,7 +12,7 @@ import java.net.UnknownHostException;
 
 /**
  * chat客户端
- *
+ * <p>
  * 此类 充当按钮事件监听器 角色
  */
 public class ClientChat implements ActionListener {
@@ -112,6 +112,7 @@ public class ClientChat implements ActionListener {
         login.addActionListener(this);
         cancle.addActionListener(this);
     }
+
     private static void setWindowCenter(JFrame frame, int width, int height, boolean flag) {
         /** 得到所在系统所在屏幕的宽高 */
         Dimension ds = frame.getToolkit().getScreenSize();
@@ -151,7 +152,7 @@ public class ClientChat implements ActionListener {
                  * 继续连接
                  */
                 win.setTitle(name);
-                try{
+                try {
                     socket = new Socket(ipStr, ChatConstants.PORT);
                     //客户端只需要一个线程
                     new Thread(new ClientReader(socket, this)).start();
@@ -183,12 +184,12 @@ public class ClientChat implements ActionListener {
                 //获取聊天输入框的内容
                 String chatContent = smsSend.getText();
                 //.trim() 删除字符串前后的空格
-                if (chatContent == null || "".equals(chatContent.trim())){
+                if (chatContent == null || "".equals(chatContent.trim())) {
                     System.out.println("聊天内容不能为空!");
                     return;
                 }
                 //打开socket输出流，发消息
-                if(socket != null){
+                if (socket != null) {
 
                     try {
                         //socket不要关闭，也不要关闭IO流，保持一直连接
@@ -199,7 +200,7 @@ public class ClientChat implements ActionListener {
                         dos.writeUTF(chatContent);
                         dos.flush();
                     } catch (IOException ioException) {
-                        System.out.println("发送异常:"+ioException.getMessage());
+                        System.out.println("发送异常:" + ioException.getMessage());
                         ioException.printStackTrace();
                     }
                 }

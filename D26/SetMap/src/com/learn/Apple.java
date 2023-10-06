@@ -5,6 +5,7 @@ public class Apple implements Comparable<Apple> {
     private String color;
     private double price;
     private int weight;
+
     public Apple(String name, String color, double price, int weight) {
         this.name = name;
         this.color = color;
@@ -53,10 +54,11 @@ public class Apple implements Comparable<Apple> {
                 ", weight=" + weight +
                 '}';
     }
+
     @Override
     public int compareTo(Apple o) {
-        if (this.price>=o.getPrice()){
+        if (this.price >= o.getPrice()) {
             return 1;
-        }else return -1;
+        } else return -1;
     }
 }

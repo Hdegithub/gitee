@@ -11,6 +11,7 @@ public interface BrandMapper {
 
     //模糊查询所有
     List<Brand> queryBrand(@Param("brand") Brand brand);
+
     //按照条件，查询符合的记录条数
     int queryBrandCount(@Param("brand") Brand brand);
 

@@ -1,7 +1,9 @@
 package com.learnjsp.web;
+
 import com.alibaba.fastjson.JSONObject;
 import com.learnjsp.pojo.Brand;
 import com.learnjsp.service.BrandService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +21,10 @@ public class AllServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pageNo = req.getParameter("pageNo");
         String cntPerPage = req.getParameter("cntPerPage");
-        if (pageNo == null){
+        if (pageNo == null) {
             pageNo = "1";
         }
-        if (cntPerPage == null){
+        if (cntPerPage == null) {
             cntPerPage = "10";
         }
         int pNo = Integer.parseInt(pageNo);

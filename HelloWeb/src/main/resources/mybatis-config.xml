@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!--起别名-->
-<!--    <typeAliases>-->
-<!--        <package name="com.geekaca.pojo"/>-->
-<!--    </typeAliases>-->
+    <!--    <typeAliases>-->
+    <!--        <package name="com.geekaca.pojo"/>-->
+    <!--    </typeAliases>-->
 
     <environments default="development">
         <environment id="development">

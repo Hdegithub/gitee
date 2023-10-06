@@ -28,10 +28,10 @@ public class LoginServlet extends HttpServlet {
         System.out.println(uname + "pass:" + jsonObject.get("pwd"));
         boolean isLoginOk = "test".equals(uname);
         Result result = new Result();
-        if (isLoginOk){
+        if (isLoginOk) {
             result.setCode(200);
             result.setMsg("登陆成功");
-        }else{
+        } else {
             result.setCode(400);
             result.setMsg("登陆失败");
         }

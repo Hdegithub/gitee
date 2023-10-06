@@ -15,7 +15,7 @@ public class TestDo {
 //            System.out.println("===============");
 //        }
 
-        while(true){
+        while (true) {
             System.out.println("----------------");
         }
     }

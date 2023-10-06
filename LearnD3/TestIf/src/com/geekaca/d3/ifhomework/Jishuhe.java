@@ -7,10 +7,10 @@ public class Jishuhe {
          */
         int sum = 0;
         for (int i = 1; i <= 10; i++) {
-            if(i % 2 == 1){
+            if (i % 2 == 1) {
 //                sout 是IDEA的快捷键
                 //打印并换行
-                System.out.println("奇数："+ i);
+                System.out.println("奇数：" + i);
                 sum += i;
 //                sum = sum + i;
                 //不换行

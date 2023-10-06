@@ -30,8 +30,8 @@ public class BlogController {
 
     @GetMapping("/blogs/list")
     @ResponseBody       //结果会被转化为JSON
-    public Result newlist(@RequestParam("page") Integer page, @RequestParam("limit")Integer limit) {
-        PageResult pageResult = newService.getPageNews(page,limit);
+    public Result newlist(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit) {
+        PageResult pageResult = newService.getPageNews(page, limit);
         Result result = new Result();
         result.setCode(NewsConstans.RESULT_OK);
         result.setData(pageResult);

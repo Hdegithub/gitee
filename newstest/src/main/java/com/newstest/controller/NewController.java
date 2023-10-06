@@ -20,8 +20,8 @@ public class NewController {
 
     @RequestMapping("/all")
     public Result selectall() {
-        List<News> newsList= newService.selectAll();
-        Result result=new Result();
+        List<News> newsList = newService.selectAll();
+        Result result = new Result();
         result.setCode(Code.GET_OK);
         result.setData(newsList);
         return result;

@@ -2,10 +2,10 @@ package com.newstest.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+
 import lombok.Data;
 
 /**
- * 
  * @TableName tb_link
  */
 @Data
@@ -65,13 +65,13 @@ public class Link implements Serializable {
         }
         Link other = (Link) that;
         return (this.getLinkId() == null ? other.getLinkId() == null : this.getLinkId().equals(other.getLinkId()))
-            && (this.getLinkType() == null ? other.getLinkType() == null : this.getLinkType().equals(other.getLinkType()))
-            && (this.getLinkName() == null ? other.getLinkName() == null : this.getLinkName().equals(other.getLinkName()))
-            && (this.getLinkUrl() == null ? other.getLinkUrl() == null : this.getLinkUrl().equals(other.getLinkUrl()))
-            && (this.getLinkDescription() == null ? other.getLinkDescription() == null : this.getLinkDescription().equals(other.getLinkDescription()))
-            && (this.getLinkRank() == null ? other.getLinkRank() == null : this.getLinkRank().equals(other.getLinkRank()))
-            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()));
+                && (this.getLinkType() == null ? other.getLinkType() == null : this.getLinkType().equals(other.getLinkType()))
+                && (this.getLinkName() == null ? other.getLinkName() == null : this.getLinkName().equals(other.getLinkName()))
+                && (this.getLinkUrl() == null ? other.getLinkUrl() == null : this.getLinkUrl().equals(other.getLinkUrl()))
+                && (this.getLinkDescription() == null ? other.getLinkDescription() == null : this.getLinkDescription().equals(other.getLinkDescription()))
+                && (this.getLinkRank() == null ? other.getLinkRank() == null : this.getLinkRank().equals(other.getLinkRank()))
+                && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()));
     }
 
     @Override

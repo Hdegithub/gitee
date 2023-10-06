@@ -7,7 +7,7 @@ public class Test01 {
         stu.show();
         stu.setBanji("五年1班");
 
-        Teacher teacher=new Teacher();
+        Teacher teacher = new Teacher();
         teacher.setName("王老师");
         teacher.setAge(99);
         teacher.kebiao();

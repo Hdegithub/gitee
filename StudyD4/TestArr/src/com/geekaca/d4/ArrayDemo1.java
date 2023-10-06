@@ -24,13 +24,13 @@ public class ArrayDemo1 {
         System.out.println("元素个数：" + ages.length);
 
         for (int i = 0; i < ages.length; i++) {
-            System.out.print(" " + ages[i]+" ");
+            System.out.print(" " + ages[i] + " ");
         }
         System.out.println("");
         //修改索引为1的元素值
         ages[1] = 99;
         for (int i = 0; i < ages.length; i++) {
-            System.out.print(" " + ages[i]+" ");
+            System.out.print(" " + ages[i] + " ");
         }
         System.out.println("数组最后一个元素:" + ages[ages.length - 1]);
     }

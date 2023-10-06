@@ -26,9 +26,9 @@ public class Threadpool01 {
         ArrayBlockingQueue waitQueue = new ArrayBlockingQueue<>(20);
         //线程池的创建
         ExecutorService threadPool = new ThreadPoolExecutor(5, 10,
-                10, TimeUnit.SECONDS,waitQueue, Executors.defaultThreadFactory(),new ThreadPoolExecutor.AbortPolicy());
+                10, TimeUnit.SECONDS, waitQueue, Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
         //向线程池提交任务
-        ZuoCaiRunnable zuoCaiRunnable=new ZuoCaiRunnable();
+        ZuoCaiRunnable zuoCaiRunnable = new ZuoCaiRunnable();
         threadPool.execute(zuoCaiRunnable);
         threadPool.execute(zuoCaiRunnable);
         threadPool.execute(zuoCaiRunnable);

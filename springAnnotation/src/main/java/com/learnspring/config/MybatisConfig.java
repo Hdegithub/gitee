@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 public class MybatisConfig {
 
     @Bean
-    public SqlSessionFactoryBean sqlSessionFatoryBean(DataSource ds){
+    public SqlSessionFactoryBean sqlSessionFatoryBean(DataSource ds) {
         //Mybatis session的工厂bean ，用来创建SqlSession的
         SqlSessionFactoryBean ssfb = new SqlSessionFactoryBean();
         ssfb.setTypeAliasesPackage("com.learnspring.domain");
@@ -19,7 +19,7 @@ public class MybatisConfig {
     }
 
     @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer(){
+    public MapperScannerConfigurer mapperScannerConfigurer() {
         //设置Mapper 扫描路径
         MapperScannerConfigurer msc = new MapperScannerConfigurer();
         msc.setBasePackage("com.learnspring.dao");

@@ -2,7 +2,6 @@ package com.learnjsp.utils;
 
 /**
  * 充当数据载体
- *
  */
 public class Result {
     private Integer code;

@@ -16,11 +16,11 @@ public class BuyPhone {
         //我的手机值 多杀钱
         double myPhoneValue = 1500;
         double cost1 = phoneCost - myPhoneValue;
-        System.out.println("直接卖自己手机方案，支出价格："+ cost1);
+        System.out.println("直接卖自己手机方案，支出价格：" + cost1);
 
         double cost2 = phoneCost * 0.8D;
         //字符串格式化，保留小数点后两位（四舍五入）
         String result = String.format("%.2f", cost2);
-        System.out.println("依旧换新方案,支出价格："+ result);
+        System.out.println("依旧换新方案,支出价格：" + result);
     }
 }

@@ -44,7 +44,7 @@ public class Token implements Filter {
                 try {
                     Map<String, Claim> stringClaimMap = JwtUtil.verifyToken(token);
 
-                    if (stringClaimMap == null){
+                    if (stringClaimMap == null) {
                         result.setCode(403);
                         result.setMsg("非法访问");
                         String s = JSON.toJSONString(result);
@@ -57,7 +57,7 @@ public class Token implements Filter {
                     Claim userType = stringClaimMap.get("userType");
                     Integer uType = userType.asInt();
                     //非管理员 禁止
-                    if (uType != BrandConstant.USER_TYPE_ADMIN){
+                    if (uType != BrandConstant.USER_TYPE_ADMIN) {
                         result.setCode(403);
                         result.setMsg("非法访问");
                         String s = JSON.toJSONString(result);

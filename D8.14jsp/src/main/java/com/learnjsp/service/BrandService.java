@@ -25,6 +25,7 @@ public class BrandService {
         sqlSession.close();
         return i;
     }
+
     public List<Brand> getAllBrands(Integer pageNo, Integer pageSize) {
         SqlSession sqlSession = SqlSessionFactoryUtils.openSession();
         BrandMapper brandMapper = sqlSession.getMapper(BrandMapper.class);

@@ -44,7 +44,7 @@ public class JdbcTest {
             Connection connection = DriverManager.getConnection(url, username, password);
             // 3, 构造sql
             String inputname = "%" + input + "%";
-            String sqlfind = "select * from testdb.account where name like '%" + inputname +"%'";
+            String sqlfind = "select * from testdb.account where name like '%" + inputname + "%'";
             //4， 构造会话  用来发送sql语句
             Statement stmt = connection.createStatement();
             //5， 发送sql，获得结果集

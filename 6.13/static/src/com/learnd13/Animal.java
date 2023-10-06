@@ -15,7 +15,7 @@ public class Animal {
         this.name = name;
     }
 
-    public void run(){
+    public void run() {
         System.out.println("动物在跑");
     }
 }

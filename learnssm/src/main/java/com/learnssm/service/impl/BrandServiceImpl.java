@@ -5,6 +5,7 @@ import com.learnssm.domain.Brand;
 import com.learnssm.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -22,7 +23,7 @@ public class BrandServiceImpl implements BrandService {
         return brandMapper.getById(id);
     }
 
-    public List<Brand>queryBrand (Brand brand) {
+    public List<Brand> queryBrand(Brand brand) {
         return brandMapper.queryBrand(brand);
     }
 

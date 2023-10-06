@@ -11,7 +11,7 @@ public class FindMax {
         for (int i = 0; i < yanzhiArr.length; i++) {
             //yanzhiArr[i] 循环访问数组的每一个元素
             //谁比我大，我就保存谁的值
-            if (yanzhiArr[i] > max){
+            if (yanzhiArr[i] > max) {
                 max = yanzhiArr[i];
             }
         }

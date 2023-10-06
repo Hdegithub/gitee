@@ -20,7 +20,7 @@ public class JdbcConfig {
     private String password;
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         DruidDataSource ds = new DruidDataSource();
         ds.setDriverClassName(driver);
         ds.setUrl(url);
@@ -33,17 +33,17 @@ public class JdbcConfig {
 
     /**
      * 告诉Spring 容器，如果发现开启了事务管理，那么事务管理器 使用这个方法的返回值对象
+     *
      * @param dataSource
      * @return
      */
     @Bean
-    public PlatformTransactionManager transactionManager(DataSource dataSource){
+    public PlatformTransactionManager transactionManager(DataSource dataSource) {
 
         DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
         transactionManager.setDataSource(dataSource);
         return transactionManager;
     }
-
 
 
 }

@@ -31,8 +31,8 @@
             <el-select v-model="brand.typeId" placeholder="品牌类别">
 
                 <el-option v-for="item in allTypes" :key="item.typeId"
-                :label="item.typeName"
-                :value="item.typeId"
+                           :label="item.typeName"
+                           :value="item.typeId"
                 ></el-option>
 
             </el-select>
@@ -95,7 +95,7 @@
 
 
             <el-form-item>
-<!--                 新增和修改提交 都是同一个按钮-->
+                <!--                 新增和修改提交 都是同一个按钮-->
                 <el-button type="primary" @click="addBrand()">提交</el-button>
                 <el-button @click="dialogVisible = false">取消</el-button>
             </el-form-item>
@@ -186,7 +186,7 @@ total: 总记录条数
                 // 用axios（运行在浏览器中,本质是一个JS的框架） 框架发送 http请求
                 axios({
                     method: "get",
-                    url: "http://localhost:8080/D8_14jsp/selectall?pageNo="+_this.currentPage +"&cntPerPage="+_this.pageSize
+                    url: "http://localhost:8080/D8_14jsp/selectall?pageNo=" + _this.currentPage + "&cntPerPage=" + _this.pageSize
                 }).then(function (resp) {
                     //当后端接口返回数据后，用哪个方法来接收  匿名方法
                     // 参数resp 代表 来自接口返回的数据
@@ -210,14 +210,14 @@ total: 总记录条数
                     _this.allTypes = resp.data;
                 })
             },
-            onSearch(){
+            onSearch() {
                 // console.log(this.brand);
                 var _this = this;
                 // 用axios（运行在浏览器中,本质是一个JS的框架） 框架发送 http请求
                 axios({
                     method: "post",
                     url: "http://localhost:8080/D8_14jsp/searchByname",
-                    data:_this.brand
+                    data: _this.brand
                 }).then(function (resp) {
                     //当后端接口返回数据后，用哪个方法来接收  匿名方法
                     // 参数resp 代表 来自接口返回的数据
@@ -226,21 +226,21 @@ total: 总记录条数
                 })
             },
             //新增
-            addBrand(){
+            addBrand() {
                 // console.log(this.brand);
                 var _this = this;
                 // 用axios（运行在浏览器中,本质是一个JS的框架） 框架发送 http请求
 
                 //要根据当前是新增还是修改，改变提交的servlet
                 var toUrl = "http://localhost:8080/D8_14jsp/addBrand";
-                if (_this.dialogType == 0){
+                if (_this.dialogType == 0) {
                     toUrl = "http://localhost:8080/D8_14jsp/updateBrand";
                 }
                 let token = localStorage.getItem("token");
                 axios({
                     method: "post",
                     url: toUrl,
-                    headers:{
+                    headers: {
                         token: token
                     },
                     data: _this.brand
@@ -249,7 +249,7 @@ total: 总记录条数
                     let parse = JSON.parse(s);
                     _this.brand = {};
                     _this.dialogVisible = false;
-                    if (parse.code == 200){
+                    if (parse.code == 200) {
                         _this.selectAll();
                         // 弹出消息提示
                         _this.$message({
@@ -273,7 +273,7 @@ total: 总记录条数
                 _this.brand = row;
 
             },
-            beforeClose(done){
+            beforeClose(done) {
                 this.brand = {};
                 done();
             },
@@ -302,19 +302,19 @@ total: 总记录条数
                 this.pageSize = val;
                 this.selectAll();
             },
-            onDelete(row){
+            onDelete(row) {
                 console.log(row.id);
                 var _this = this;
                 // 用axios（运行在浏览器中,本质是一个JS的框架） 框架发送 http请求
                 axios({
                     method: "get",
-                    url: "http://localhost:8080/D8_14jsp/delete?id="+row.id
+                    url: "http://localhost:8080/D8_14jsp/delete?id=" + row.id
                 }).then(function (resp) {
                     //当后端接口返回数据后，用哪个方法来接收  匿名方法
                     // 参数resp 代表 来自接口返回的数据
                     let s = JSON.stringify(resp.data);
                     let parse = JSON.parse(s);
-                    if (parse.code == 200){
+                    if (parse.code == 200) {
                         // 弹出消息提示
                         _this.$message({
                             message: '恭喜你，删除成功',
@@ -337,14 +337,14 @@ total: 总记录条数
             totalCnts: 20,
 
             brand: {
-                brandName:'',
-                companyName:'',
-                status:''
+                brandName: '',
+                companyName: '',
+                status: ''
             },
             //数据list
             myTableData: [],
             //所有品牌类别list
-            allTypes:[],
+            allTypes: [],
         }
     })
 

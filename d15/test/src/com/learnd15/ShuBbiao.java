@@ -1,6 +1,6 @@
 package com.learnd15;
 
-public class ShuBbiao extends Usb{
+public class ShuBbiao extends Usb {
     @Override
     public void jieru() {
         System.out.println("鼠标已接入");

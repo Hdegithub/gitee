@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
- * 
  * @TableName tb_news
  */
 @Data
@@ -102,19 +101,19 @@ public class News implements Serializable {
         }
         News other = (News) that;
         return (this.getNewsId() == null ? other.getNewsId() == null : this.getNewsId().equals(other.getNewsId()))
-            && (this.getNewsTitle() == null ? other.getNewsTitle() == null : this.getNewsTitle().equals(other.getNewsTitle()))
-            && (this.getNewsSubUrl() == null ? other.getNewsSubUrl() == null : this.getNewsSubUrl().equals(other.getNewsSubUrl()))
-            && (this.getNewsCoverImage() == null ? other.getNewsCoverImage() == null : this.getNewsCoverImage().equals(other.getNewsCoverImage()))
-            && (this.getNewsContent() == null ? other.getNewsContent() == null : this.getNewsContent().equals(other.getNewsContent()))
-            && (this.getNewsCategoryId() == null ? other.getNewsCategoryId() == null : this.getNewsCategoryId().equals(other.getNewsCategoryId()))
-            && (this.getNewsCategoryName() == null ? other.getNewsCategoryName() == null : this.getNewsCategoryName().equals(other.getNewsCategoryName()))
-            && (this.getNewsTags() == null ? other.getNewsTags() == null : this.getNewsTags().equals(other.getNewsTags()))
-            && (this.getNewsStatus() == null ? other.getNewsStatus() == null : this.getNewsStatus().equals(other.getNewsStatus()))
-            && (this.getNewsViews() == null ? other.getNewsViews() == null : this.getNewsViews().equals(other.getNewsViews()))
-            && (this.getEnableComment() == null ? other.getEnableComment() == null : this.getEnableComment().equals(other.getEnableComment()))
-            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
+                && (this.getNewsTitle() == null ? other.getNewsTitle() == null : this.getNewsTitle().equals(other.getNewsTitle()))
+                && (this.getNewsSubUrl() == null ? other.getNewsSubUrl() == null : this.getNewsSubUrl().equals(other.getNewsSubUrl()))
+                && (this.getNewsCoverImage() == null ? other.getNewsCoverImage() == null : this.getNewsCoverImage().equals(other.getNewsCoverImage()))
+                && (this.getNewsContent() == null ? other.getNewsContent() == null : this.getNewsContent().equals(other.getNewsContent()))
+                && (this.getNewsCategoryId() == null ? other.getNewsCategoryId() == null : this.getNewsCategoryId().equals(other.getNewsCategoryId()))
+                && (this.getNewsCategoryName() == null ? other.getNewsCategoryName() == null : this.getNewsCategoryName().equals(other.getNewsCategoryName()))
+                && (this.getNewsTags() == null ? other.getNewsTags() == null : this.getNewsTags().equals(other.getNewsTags()))
+                && (this.getNewsStatus() == null ? other.getNewsStatus() == null : this.getNewsStatus().equals(other.getNewsStatus()))
+                && (this.getNewsViews() == null ? other.getNewsViews() == null : this.getNewsViews().equals(other.getNewsViews()))
+                && (this.getEnableComment() == null ? other.getEnableComment() == null : this.getEnableComment().equals(other.getEnableComment()))
+                && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
 
     @Override

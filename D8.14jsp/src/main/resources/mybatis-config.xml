@@ -3,11 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<!--     类型的别名配置-->
+    <!--     类型的别名配置-->
     <typeAliases>
         <package name="com.learnjsp.pojo"/>
     </typeAliases>
-    
+
     <!--
     environments：配置数据库连接环境信息。可以配置多个environment，通过default属性切换不同的environment
     -->
@@ -17,7 +17,8 @@
             <dataSource type="POOLED">
                 <!--数据库连接信息   -->
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/brand?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/brand?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="123456"/>
             </dataSource>
@@ -28,7 +29,8 @@
             <dataSource type="POOLED">
                 <!--数据库连接信息-->
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql:///brand?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
+                <property name="url"
+                          value="jdbc:mysql:///brand?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="123456"/>
             </dataSource>
@@ -36,7 +38,7 @@
     </environments>
     <mappers>
         <!--加载sql映射文件-->
-       <!-- <mapper resource="com/geekaca/mapper/UserMapper.xml"/>-->
+        <!-- <mapper resource="com/geekaca/mapper/UserMapper.xml"/>-->
 
         <!--Mapper代理方式  ,配置 告诉mybatis你的mapper类所在的包-->
         <package name="com.learnjsp.mapper"/>

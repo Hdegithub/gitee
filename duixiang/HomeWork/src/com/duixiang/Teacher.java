@@ -6,11 +6,11 @@ public class Teacher {
     char xingbie;
 
 
-    public void chuti(){
+    public void chuti() {
         System.out.println("出题");
     }
 
-    public void piyue(){
+    public void piyue() {
         System.out.println("批阅试卷");
     }
 }

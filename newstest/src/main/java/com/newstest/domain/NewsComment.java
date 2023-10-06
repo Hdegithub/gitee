@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
- * 
  * @TableName tb_news_comment
  */
 @Data
@@ -89,17 +88,17 @@ public class NewsComment implements Serializable {
         }
         NewsComment other = (NewsComment) that;
         return (this.getCommentId() == null ? other.getCommentId() == null : this.getCommentId().equals(other.getCommentId()))
-            && (this.getNewsId() == null ? other.getNewsId() == null : this.getNewsId().equals(other.getNewsId()))
-            && (this.getCommentator() == null ? other.getCommentator() == null : this.getCommentator().equals(other.getCommentator()))
-            && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
-            && (this.getWebsiteUrl() == null ? other.getWebsiteUrl() == null : this.getWebsiteUrl().equals(other.getWebsiteUrl()))
-            && (this.getCommentBody() == null ? other.getCommentBody() == null : this.getCommentBody().equals(other.getCommentBody()))
-            && (this.getCommentCreateTime() == null ? other.getCommentCreateTime() == null : this.getCommentCreateTime().equals(other.getCommentCreateTime()))
-            && (this.getCommentatorIp() == null ? other.getCommentatorIp() == null : this.getCommentatorIp().equals(other.getCommentatorIp()))
-            && (this.getReplyBody() == null ? other.getReplyBody() == null : this.getReplyBody().equals(other.getReplyBody()))
-            && (this.getReplyCreateTime() == null ? other.getReplyCreateTime() == null : this.getReplyCreateTime().equals(other.getReplyCreateTime()))
-            && (this.getCommentStatus() == null ? other.getCommentStatus() == null : this.getCommentStatus().equals(other.getCommentStatus()))
-            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()));
+                && (this.getNewsId() == null ? other.getNewsId() == null : this.getNewsId().equals(other.getNewsId()))
+                && (this.getCommentator() == null ? other.getCommentator() == null : this.getCommentator().equals(other.getCommentator()))
+                && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
+                && (this.getWebsiteUrl() == null ? other.getWebsiteUrl() == null : this.getWebsiteUrl().equals(other.getWebsiteUrl()))
+                && (this.getCommentBody() == null ? other.getCommentBody() == null : this.getCommentBody().equals(other.getCommentBody()))
+                && (this.getCommentCreateTime() == null ? other.getCommentCreateTime() == null : this.getCommentCreateTime().equals(other.getCommentCreateTime()))
+                && (this.getCommentatorIp() == null ? other.getCommentatorIp() == null : this.getCommentatorIp().equals(other.getCommentatorIp()))
+                && (this.getReplyBody() == null ? other.getReplyBody() == null : this.getReplyBody().equals(other.getReplyBody()))
+                && (this.getReplyCreateTime() == null ? other.getReplyCreateTime() == null : this.getReplyCreateTime().equals(other.getReplyCreateTime()))
+                && (this.getCommentStatus() == null ? other.getCommentStatus() == null : this.getCommentStatus().equals(other.getCommentStatus()))
+                && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()));
     }
 
     @Override

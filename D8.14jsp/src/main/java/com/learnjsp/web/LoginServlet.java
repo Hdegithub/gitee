@@ -1,6 +1,8 @@
 package com.learnjsp.web;
+
 import com.learnjsp.pojo.User;
 import com.learnjsp.service.UserService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -32,7 +34,7 @@ public class LoginServlet extends HttpServlet {
                 resp.addCookie(cookie);
                 resp.addCookie(cookie2);
             }
-            resp.sendRedirect(req.getContextPath()+"/selectall");
+            resp.sendRedirect(req.getContextPath() + "/selectall");
         } else {
             req.setAttribute("err", "登录失败");
             req.getRequestDispatcher("/login.jsp").forward(req, resp);

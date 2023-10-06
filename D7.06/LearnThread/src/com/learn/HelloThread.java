@@ -6,7 +6,7 @@ public class HelloThread {
     public static void main(String[] args) {
         MyThread myThread = new MyThread();
         myThread.start();
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String s = scanner.next();
         System.out.println(s);
     }

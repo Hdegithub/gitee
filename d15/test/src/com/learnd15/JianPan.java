@@ -1,6 +1,6 @@
 package com.learnd15;
 
-public class JianPan extends Usb{
+public class JianPan extends Usb {
     @Override
     public void jieru() {
         System.out.println("键盘已接入");

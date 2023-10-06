@@ -104,6 +104,7 @@ public class ClientChat implements ActionListener {
         login.addActionListener(this);
         cancle.addActionListener(this);
     }
+
     private static void setWindowCenter(JFrame frame, int width, int height, boolean flag) {
         /** 得到所在系统所在屏幕的宽高 */
         Dimension ds = frame.getToolkit().getScreenSize();
@@ -143,9 +144,9 @@ public class ClientChat implements ActionListener {
                  * 继续连接
                  */
                 win.setTitle(name);
-                try{
+                try {
                     Socket socket = new Socket(ipStr, ChatConstants.PORT);
-                    new Thread(new ClientReader(socket,this)).start();
+                    new Thread(new ClientReader(socket, this)).start();
                     //需要不断读取 来自server的信息 ，如果此处直接写while(true) 死循环
                     //读取server的数据，就会导致把cpu抱住不让走，
                     /**

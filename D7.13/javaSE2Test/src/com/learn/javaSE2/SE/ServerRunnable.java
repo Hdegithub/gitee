@@ -52,16 +52,16 @@ public class ServerRunnable implements Runnable {
     }
 
     public void sendMsgtoAll(String msg) {
-            ServerChat.onLineSocketMap.forEach((socket, nick) -> {
-                try {
-                    DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-                    dos.writeInt(ChatConstants.MSG_TYPE_LOGIN);
-                    dos.writeUTF(msg);
-                    dos.flush();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
+        ServerChat.onLineSocketMap.forEach((socket, nick) -> {
+            try {
+                DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+                dos.writeInt(ChatConstants.MSG_TYPE_LOGIN);
+                dos.writeUTF(msg);
+                dos.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
     }
 }

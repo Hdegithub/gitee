@@ -26,11 +26,11 @@ public class TestBreak {
         //不推荐
         OUTTAG:
         for (int i = 1; i <= 5; i++) {
-            for (int j = 1; j <= 10 ; j++) {
-                if (j == 2){
+            for (int j = 1; j <= 10; j++) {
+                if (j == 2) {
                     break OUTTAG;
                 }
-                System.out.println(i + " "+ j);
+                System.out.println(i + " " + j);
             }
         }
         //

@@ -1,10 +1,10 @@
 package com.newstest.domain;
 
 import java.io.Serializable;
+
 import lombok.Data;
 
 /**
- * 
  * @TableName tb_admin_user
  */
 @Data
@@ -49,10 +49,10 @@ public class AdminUser implements Serializable {
         }
         AdminUser other = (AdminUser) that;
         return (this.getAdminUserId() == null ? other.getAdminUserId() == null : this.getAdminUserId().equals(other.getAdminUserId()))
-            && (this.getLoginUserName() == null ? other.getLoginUserName() == null : this.getLoginUserName().equals(other.getLoginUserName()))
-            && (this.getLoginPassword() == null ? other.getLoginPassword() == null : this.getLoginPassword().equals(other.getLoginPassword()))
-            && (this.getNickName() == null ? other.getNickName() == null : this.getNickName().equals(other.getNickName()))
-            && (this.getLocked() == null ? other.getLocked() == null : this.getLocked().equals(other.getLocked()));
+                && (this.getLoginUserName() == null ? other.getLoginUserName() == null : this.getLoginUserName().equals(other.getLoginUserName()))
+                && (this.getLoginPassword() == null ? other.getLoginPassword() == null : this.getLoginPassword().equals(other.getLoginPassword()))
+                && (this.getNickName() == null ? other.getNickName() == null : this.getNickName().equals(other.getNickName()))
+                && (this.getLocked() == null ? other.getLocked() == null : this.getLocked().equals(other.getLocked()));
     }
 
     @Override

@@ -4,15 +4,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- *
  * 用来携带参数
- *
+ * <p>
  * 分页查询参数
  * 可改进空间：
-   JavaBean
- PageInfo{
-
- }
+ * JavaBean
+ * PageInfo{
+ * <p>
+ * }
  */
 public class PageQueryUtil extends LinkedHashMap<String, Object> {
     //当前页码
@@ -21,7 +20,7 @@ public class PageQueryUtil extends LinkedHashMap<String, Object> {
     private int limit;
 
     public PageQueryUtil(Map<String, Object> params) {
-       //把params这个Map中的所有key value都放入自己的Map中
+        //把params这个Map中的所有key value都放入自己的Map中
         this.putAll(params);
 
         //分页参数

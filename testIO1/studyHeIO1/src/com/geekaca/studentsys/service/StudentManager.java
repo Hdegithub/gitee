@@ -78,18 +78,18 @@ public enum StudentManager {
     private void findStuName() {
         //搜索学生
         System.out.println("请输入学生名字：");
-        Scanner scanner=new Scanner(System.in);
-        String input=scanner.next();
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.next();
         final boolean[] isfind = {false};
-        STU_MAPS.forEach((k,stu)->{
-            String name=stu.getName();
+        STU_MAPS.forEach((k, stu) -> {
+            String name = stu.getName();
             if (name.contains(input)) {
-                System.out.println("找到以下学生："+stu.toString());
-                isfind[0] =true;
+                System.out.println("找到以下学生：" + stu.toString());
+                isfind[0] = true;
             }
         });
-        if (!isfind[0]){
-            System.out.println("没有找到名字含有"+input+"的学生");
+        if (!isfind[0]) {
+            System.out.println("没有找到名字含有" + input + "的学生");
         }
     }
 

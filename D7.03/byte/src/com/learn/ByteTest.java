@@ -8,7 +8,7 @@ public class ByteTest {
         File file1 = new File("D:\\IOcopy\\copy");
         InputStream fis = null;
         OutputStream fos = null;
-        int count=0;
+        int count = 0;
         try {
             fis = new FileInputStream(file);
             fos = new FileOutputStream(file1);
@@ -36,6 +36,6 @@ public class ByteTest {
                 }
             }
         }
-        System.out.println("搬运了："+count+"次");
+        System.out.println("搬运了：" + count + "次");
     }
 }

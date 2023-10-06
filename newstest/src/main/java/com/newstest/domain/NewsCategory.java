@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
- * 
  * @TableName tb_news_category
  */
 @Data
@@ -58,11 +57,11 @@ public class NewsCategory implements Serializable {
         }
         NewsCategory other = (NewsCategory) that;
         return (this.getCategoryId() == null ? other.getCategoryId() == null : this.getCategoryId().equals(other.getCategoryId()))
-            && (this.getCategoryName() == null ? other.getCategoryName() == null : this.getCategoryName().equals(other.getCategoryName()))
-            && (this.getCategoryIcon() == null ? other.getCategoryIcon() == null : this.getCategoryIcon().equals(other.getCategoryIcon()))
-            && (this.getCategoryRank() == null ? other.getCategoryRank() == null : this.getCategoryRank().equals(other.getCategoryRank()))
-            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()));
+                && (this.getCategoryName() == null ? other.getCategoryName() == null : this.getCategoryName().equals(other.getCategoryName()))
+                && (this.getCategoryIcon() == null ? other.getCategoryIcon() == null : this.getCategoryIcon().equals(other.getCategoryIcon()))
+                && (this.getCategoryRank() == null ? other.getCategoryRank() == null : this.getCategoryRank().equals(other.getCategoryRank()))
+                && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()));
     }
 
     @Override

@@ -170,47 +170,50 @@
                 </aside>
                 <th:block th:if="${blogDetailVO.enableComment==0}">
 
-                <aside class="create-comment" id="create-comment">
-                    <hr>
-                    <h2><i class="fa fa-pencil"></i> 添加评论</h2>
-                    <form action="#" method="get" onsubmit="return false;" accept-charset="utf-8">
-                        <input type="hidden" id="blogId" name="blogId" th:value="${blogDetailVO.blogId}"></input>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="commentator" id="commentator" placeholder="(*必填)怎么称呼你?"
-                                       class="form-control input-lg">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" name="email" id="email" placeholder="(*必填)你的联系邮箱"
-                                       class="form-control input-lg">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="websiteUrl" id="websiteUrl" placeholder="你的网站地址(可不填)"
-                                       class="form-control input-lg">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="col-md-4">
-                                    <img alt="单击图片刷新！" class="pointer" style="margin-top: 15px; border-radius: 25px;"
-                                         th:src="@{/common/kaptcha}"
-                                         onclick="this.src='/common/kaptcha?d='+new Date()*1">
+                    <aside class="create-comment" id="create-comment">
+                        <hr>
+                        <h2><i class="fa fa-pencil"></i> 添加评论</h2>
+                        <form action="#" method="get" onsubmit="return false;" accept-charset="utf-8">
+                            <input type="hidden" id="blogId" name="blogId" th:value="${blogDetailVO.blogId}"></input>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" name="commentator" id="commentator" placeholder="(*必填)怎么称呼你?"
+                                           class="form-control input-lg">
                                 </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control input-lg" name="verifyCode" id="verifyCode"
-                                           placeholder="(*必填)请输入验证码"
-                                           required="true">
+                                <div class="col-md-6">
+                                    <input type="email" name="email" id="email" placeholder="(*必填)你的联系邮箱"
+                                           class="form-control input-lg">
                                 </div>
                             </div>
-                        </div>
-                        <textarea rows="10" name="commentBody" id="commentBody" placeholder="(*必填)请输入你的评论"
-                                  class="form-control input-lg"></textarea>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" name="websiteUrl" id="websiteUrl" placeholder="你的网站地址(可不填)"
+                                           class="form-control input-lg">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <img alt="单击图片刷新！" class="pointer"
+                                             style="margin-top: 15px; border-radius: 25px;"
+                                             th:src="@{/common/kaptcha}"
+                                             onclick="this.src='/common/kaptcha?d='+new Date()*1">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control input-lg" name="verifyCode"
+                                               id="verifyCode"
+                                               placeholder="(*必填)请输入验证码"
+                                               required="true">
+                                    </div>
+                                </div>
+                            </div>
+                            <textarea rows="10" name="commentBody" id="commentBody" placeholder="(*必填)请输入你的评论"
+                                      class="form-control input-lg"></textarea>
 
-                        <div class="buttons clearfix">
-                            <button type="submit" id="commentSubmit" class="btn btn-xlarge btn-clean-one">提交</button>
-                        </div>
-                    </form>
-                </aside>
+                            <div class="buttons clearfix">
+                                <button type="submit" id="commentSubmit" class="btn btn-xlarge btn-clean-one">提交
+                                </button>
+                            </div>
+                        </form>
+                    </aside>
                 </th:block>
                 <p class="back-top" id="back-top" style="display:none"><a href="#top"><span></span></a></p>
             </div>

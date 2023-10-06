@@ -1,6 +1,6 @@
 package com.d15.homework;
 
-public class FruitJuicy extends Template{
+public class FruitJuicy extends Template {
     public FruitJuicy() {
         System.out.println("开始做果汁");
     }

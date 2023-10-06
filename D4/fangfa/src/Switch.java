@@ -9,9 +9,10 @@ public class Switch {
         int yuefen = scanner.nextInt();
         System.out.println("请输入座位：经济舱.头等舱");
         String cangwei = scanner.next();
-        double resultprice=feijipiao(jiage, yuefen, cangwei);
-        System.out.println("最终价格："+resultprice);
+        double resultprice = feijipiao(jiage, yuefen, cangwei);
+        System.out.println("最终价格：" + resultprice);
     }
+
     public static double feijipiao(double jiage, int yuefen, String cangwei) {
         if (yuefen >= 5 && yuefen <= 10) {
             switch (cangwei) {
@@ -37,7 +38,7 @@ public class Switch {
                     System.out.println("仓位输入错误");
                     break;
             }
-        }else {
+        } else {
             System.out.println("月份输入错误");
         }
         return jiage;

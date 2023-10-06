@@ -1,4 +1,5 @@
 package com.newstest.service;
+
 import com.newstest.domain.NewsCategory;
 import com.newstest.utils.PageQueryUtil;
 import com.newstest.utils.PageResult;
@@ -25,7 +26,7 @@ public interface CategoryService {
      * @param categoryIcon
      * @return
      */
-    Boolean saveCategory(String categoryName,String categoryIcon);
+    Boolean saveCategory(String categoryName, String categoryIcon);
 
     Boolean updateCategory(Integer categoryId, String categoryName, String categoryIcon);
 

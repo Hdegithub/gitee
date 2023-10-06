@@ -36,9 +36,9 @@ public class DeleteServlet extends HttpServlet {
         Integer[] ids = jArray.toArray(new Integer[jArray.size()]);
         //todo: 执行批量删除
         int i = brandService.deleteByIds(ids);
-        if (i > 0){
+        if (i > 0) {
             System.out.println("删除成功");
-        }else{
+        } else {
             System.out.println("删除失败");
         }
         System.out.println("删除了 :" + i);

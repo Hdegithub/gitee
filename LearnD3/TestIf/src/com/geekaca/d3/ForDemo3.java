@@ -10,7 +10,7 @@ public class ForDemo3 {
         for (int i = 1; i <= 30; i++) {
             //余数
             int rs = i % 2;
-            if (rs == 1){
+            if (rs == 1) {
                 System.out.println(i + "是奇数");
             }
         }

@@ -28,8 +28,8 @@ class Mycallable implements Callable<String> {
     public String call() throws Exception {
         int sum = 0;
         for (int i = 0; i < n; i++) {
-            sum+=n;
+            sum += n;
         }
-        return Thread.currentThread().getName()+"执行求和的结果是："+sum;
+        return Thread.currentThread().getName() + "执行求和的结果是：" + sum;
     }
 }

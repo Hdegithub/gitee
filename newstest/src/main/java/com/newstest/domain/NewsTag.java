@@ -2,10 +2,10 @@ package com.newstest.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+
 import lombok.Data;
 
 /**
- * 
  * @TableName tb_news_tag
  */
 @Data
@@ -45,9 +45,9 @@ public class NewsTag implements Serializable {
         }
         NewsTag other = (NewsTag) that;
         return (this.getTagId() == null ? other.getTagId() == null : this.getTagId().equals(other.getTagId()))
-            && (this.getTagName() == null ? other.getTagName() == null : this.getTagName().equals(other.getTagName()))
-            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()));
+                && (this.getTagName() == null ? other.getTagName() == null : this.getTagName().equals(other.getTagName()))
+                && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()));
     }
 
     @Override

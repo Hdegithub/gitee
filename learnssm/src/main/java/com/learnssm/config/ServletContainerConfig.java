@@ -9,6 +9,7 @@ public class ServletContainerConfig extends AbstractAnnotationConfigDispatcherSe
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{SpringConfig.class};
     }
+
     //针对springMVC配置类
     @Override
     protected Class<?>[] getServletConfigClasses() {

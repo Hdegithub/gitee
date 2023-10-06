@@ -32,8 +32,9 @@ public class TestService {
         Brand brand = brandService.getById(1);
         System.out.println(brand);
     }
+
     @Test
-    public void testdelete(){
+    public void testdelete() {
         int delete = brandService.delete(1);
         System.out.println(delete);
     }

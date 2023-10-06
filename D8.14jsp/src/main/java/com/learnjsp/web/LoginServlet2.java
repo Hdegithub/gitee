@@ -21,6 +21,7 @@ import java.io.PrintWriter;
 @WebServlet(urlPatterns = "/login2")
 public class LoginServlet2 extends HttpServlet {
     private UserService userService = new UserService();
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ServletInputStream inputStream = req.getInputStream();
@@ -37,7 +38,7 @@ public class LoginServlet2 extends HttpServlet {
         resp.setHeader("Content-Type", "text/json;charset=utf-8");
         PrintWriter writer = resp.getWriter();
         Result result = new Result();
-        if (user != null){
+        if (user != null) {
             //登陆成功
             /**
              * 生成token，返回给前端
@@ -49,7 +50,7 @@ public class LoginServlet2 extends HttpServlet {
             user.setToken(token);
             result.setData(user);
             result.setMsg("登陆成功");
-        }else{
+        } else {
             result.setCode(400);
             result.setMsg("登陆成功");
         }

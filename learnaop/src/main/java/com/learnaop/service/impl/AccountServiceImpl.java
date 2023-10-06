@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AccountServiceImpl implements AccountService {
-//    public void showInfo(){
+    //    public void showInfo(){
 //        System.out.println("test");
 //    }
     @Autowired
@@ -17,8 +17,8 @@ public class AccountServiceImpl implements AccountService {
      * 转账
      *
      * @param acNameOut 转出方
-     * @param acNameIn     转入方
-     * @param money  金额
+     * @param acNameIn  转入方
+     * @param money     金额
      */
     @Override
     public void transfer(String acNameOut, String acNameIn, Double money) {

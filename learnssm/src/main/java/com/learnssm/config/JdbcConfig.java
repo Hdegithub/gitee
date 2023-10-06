@@ -21,10 +21,11 @@ public class JdbcConfig {
     /**
      * javax.sql.DataSource 接口  国家电器规范    servlet  和Tomcat(Jetty)
      * com.alibaba.druid.pool.DruidDataSource  具体的插座厂商 公牛 中间有很多层，实现了Datasource接口，子类
+     *
      * @return
      */
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driver);
         dataSource.setUrl(url);
@@ -34,7 +35,7 @@ public class JdbcConfig {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(DataSource dataSource){
+    public PlatformTransactionManager transactionManager(DataSource dataSource) {
         DataSourceTransactionManager ds = new DataSourceTransactionManager();
         ds.setDataSource(dataSource);
         return ds;

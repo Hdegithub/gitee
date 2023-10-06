@@ -18,7 +18,7 @@ public class People {
         this.age = age;
     }
 
-    public void  kebiao(){
+    public void kebiao() {
         System.out.println("查看课表");
     }
 }

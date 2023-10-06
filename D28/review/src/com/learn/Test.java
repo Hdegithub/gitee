@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
-        String [] winners={"第一届 1930年 乌拉圭 乌拉圭",
+        String[] winners = {"第一届 1930年 乌拉圭 乌拉圭",
                 "第二届	1934年	意大利	意大利",
                 "第三届	1938年	法国	意大利",
                 "第四届	1950年	巴西	乌拉圭",
@@ -26,12 +26,12 @@ public class Test {
                 "第十八届	2006年	德国	意大利",
                 "第十九届	2010年	南非	西班牙",
                 "第二十届	2014年	巴西	德国"};
-        int year=1930;
-        Map<Integer,String>map=new HashMap<>();
+        int year = 1930;
+        Map<Integer, String> map = new HashMap<>();
         for (int i = 0; i < winners.length; i++) {
-            String str=winners[i];
-            map.put(year,str);
-            year+=4;
+            String str = winners[i];
+            map.put(year, str);
+            year += 4;
         }
         Scanner sc = new Scanner(System.in);
         while (true) {

@@ -20,9 +20,12 @@ public class BrandController {
     private BrandService brandService;
 
     @RequestMapping("/all")
-    public List<Brand> getall() {
+    public Result getall() {
         List<Brand> serviceAll = brandService.getAll();
-        return serviceAll;
+        Result result = new Result();
+        result.setCode(Code.GET_OK);
+        result.setData(serviceAll);
+        return result;
     }
 
     @RequestMapping("/get/{id}")
@@ -68,8 +71,8 @@ public class BrandController {
     //增加数据
     @RequestMapping("/insert")
     public int insert(@RequestBody Brand brand) {
-        if (brand.getBrandName()==null){
-            throw  new BusinessException(Code.GET_ERR, "品牌名不能为空");
+        if (brand.getBrandName() == null) {
+            throw new BusinessException(Code.GET_ERR, "品牌名不能为空");
         }
         return brandService.insertBrand(brand);
     }

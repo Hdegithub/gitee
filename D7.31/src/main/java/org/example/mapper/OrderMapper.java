@@ -5,5 +5,6 @@ import org.example.pojo.Order;
 
 public interface OrderMapper {
     int addOrder(Order order);
+
     int updateOrder(Order order);
 }

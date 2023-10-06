@@ -38,7 +38,7 @@ public class TypeServiceImpl implements TypeService {
 //        }
         System.out.println(" BookServiceImpl show");
 //        bookMapper.test();
-        Type type =new Type();
+        Type type = new Type();
         type.setTypeId(3);
         type.setTypeName("玩具");
         bookDao.save(type);

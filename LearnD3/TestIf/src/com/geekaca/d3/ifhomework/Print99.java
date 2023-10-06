@@ -19,7 +19,7 @@ public class Print99 {
                 //j = 1   1 * 2 = 1   1*2=2
                 //j = 2   2 * 2 = 4
 
-                System.out.print(j + "*"+ i +"="+ (j * i) + " ");
+                System.out.print(j + "*" + i + "=" + (j * i) + " ");
             }
             //每打印完一行后，换行
             System.out.println("");
