@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.stu.mapper.StuClassRelationMapper">
+
+    <resultMap id="BaseResultMap" type="com.test.stu.domain.StuClassRelation">
+        <id property="relationId" column="relation_id" jdbcType="INTEGER"/>
+        <result property="stuId" column="stu_id" jdbcType="INTEGER"/>
+        <result property="classId" column="class_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        relation_id
+        ,stu_id,class_id
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from stu_class_relation
+        where relation_id = #{relationId,jdbcType=INTEGER}
+    </select>
+    //查询某一个班级的学生情况
+    <select id="selectStuByClass" resultType="com.test.stu.domain.StuClassRelation">
+        SELECT *
+        FROM stu_class_relation,
+        stu_table
+        <where>
+            stu_table.stu_id = stu_class_relation.stu_id
+
+            <if test="classId != null">
+                and stu_class_relation.class_id=#{classId}
+            </if>
+        </where>
+        limit
+        #{limit},
+        #{pageSize}
+    </select>
+    <select id="findStuCount" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM stu_class_relation,
+        stu_table
+        <where>
+            stu_table.stu_id = stu_class_relation.stu_id
+            <if test="classId != null">
+                and stu_class_relation.class_id=#{classId}
+            </if>
+        </where>
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from stu_class_relation
+        where relation_id = #{relationId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="relation_id" keyProperty="relationId"
+            parameterType="com.test.stu.domain.StuClassRelation" useGeneratedKeys="true">
+        insert into stu_class_relation
+            (relation_id, stu_id, class_id)
+        values (#{relationId,jdbcType=INTEGER}, #{stuId,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" keyColumn="relation_id" keyProperty="relationId"
+            parameterType="com.test.stu.domain.StuClassRelation" useGeneratedKeys="true">
+        insert into stu_class_relation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="relationId != null">relation_id,</if>
+            <if test="stuId != null">stu_id,</if>
+            <if test="classId != null">class_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="relationId != null">#{relationId,jdbcType=INTEGER},</if>
+            <if test="stuId != null">#{stuId,jdbcType=INTEGER},</if>
+            <if test="classId != null">#{classId,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.test.stu.domain.StuClassRelation">
+        update stu_class_relation
+        <set>
+            <if test="stuId != null">
+                stu_id = #{stuId,jdbcType=INTEGER},
+            </if>
+            <if test="classId != null">
+                class_id = #{classId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where relation_id = #{relationId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.test.stu.domain.StuClassRelation">
+        update stu_class_relation
+        set stu_id   = #{stuId,jdbcType=INTEGER},
+            class_id = #{classId,jdbcType=INTEGER}
+        where relation_id = #{relationId,jdbcType=INTEGER}
+    </update>
+</mapper>
