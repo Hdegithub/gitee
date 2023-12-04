@@ -21,5 +21,4 @@ public interface StuClassMapper {
     int updateByPrimaryKeySelective(StuClass record);
 
     int updateByPrimaryKey(StuClass record);
-
 }
