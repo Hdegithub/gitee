@@ -21,8 +21,8 @@
         from stu_class_relation
         where relation_id = #{relationId,jdbcType=INTEGER}
     </select>
-    //查询某一个班级的学生情况
-    <select id="selectStuByClass" resultType="com.test.stu.domain.StuClassRelation">
+    <!--    查询某一个班级的学生-->
+    <select id="selectStuByClass" resultMap="BaseResultMap">
         SELECT *
         FROM stu_class_relation,
         stu_table

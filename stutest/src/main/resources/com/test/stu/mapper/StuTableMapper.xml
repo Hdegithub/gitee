@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.stu.mapper.StuTableMapper">
+
+    <resultMap id="BaseResultMap" type="com.test.stu.domain.StuTable">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="stuId" column="stu_id" jdbcType="INTEGER"/>
+        <result property="stuName" column="stu_name" jdbcType="VARCHAR"/>
+        <result property="stuGender" column="stu_gender" jdbcType="CHAR"/>
+        <result property="stuDay" column="stu_day" jdbcType="DATE"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,stu_id,stu_name,
+        stu_gender,stu_day
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from stu_table
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectPageByName" resultMap="BaseResultMap">
+        SELECT * FROM stu_class_relation,stu_table
+        <where>
+            stu_class_relation.stu_id=stu_table.stu_id
+            <if test="stuName != null">
+                and stu_name like concat('%', #{stuName}, '%')
+            </if>
+        </where>
+        limit #{limit}, #{pageSize}
+    </select>
+    <select id="findStuCount" resultType="java.lang.Integer">
+        SELECT count(*) FROM stu_class_relation,stu_table
+        <where>
+            stu_class_relation.stu_id=stu_table.stu_id
+            <if test="stuName != null">
+                and stu_name like concat('%', #{stuName}, '%')
+            </if>
+        </where>
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from stu_table
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.test.stu.domain.StuTable"
+            useGeneratedKeys="true">
+        insert into stu_table
+        ( id, stu_id, stu_name
+        , stu_gender, stu_day)
+        values ( #{id,jdbcType=INTEGER}, #{stuId,jdbcType=INTEGER}, #{stuName,jdbcType=VARCHAR}
+               , #{stuGender,jdbcType=CHAR}, #{stuDay,jdbcType=DATE})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.test.stu.domain.StuTable"
+            useGeneratedKeys="true">
+        insert into stu_table
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="stuId != null">stu_id,</if>
+            <if test="stuName != null">stu_name,</if>
+            <if test="stuGender != null">stu_gender,</if>
+            <if test="stuDay != null">stu_day,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id,jdbcType=INTEGER},</if>
+            <if test="stuId != null">#{stuId,jdbcType=INTEGER},</if>
+            <if test="stuName != null">#{stuName,jdbcType=VARCHAR},</if>
+            <if test="stuGender != null">#{stuGender,jdbcType=CHAR},</if>
+            <if test="stuDay != null">#{stuDay,jdbcType=DATE},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.test.stu.domain.StuTable">
+        update stu_table
+        <set>
+            <if test="stuId != null">
+                stu_id = #{stuId,jdbcType=INTEGER},
+            </if>
+            <if test="stuName != null">
+                stu_name = #{stuName,jdbcType=VARCHAR},
+            </if>
+            <if test="stuGender != null">
+                stu_gender = #{stuGender,jdbcType=CHAR},
+            </if>
+            <if test="stuDay != null">
+                stu_day = #{stuDay,jdbcType=DATE},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.test.stu.domain.StuTable">
+        update stu_table
+        set stu_id     = #{stuId,jdbcType=INTEGER},
+            stu_name   = #{stuName,jdbcType=VARCHAR},
+            stu_gender = #{stuGender,jdbcType=CHAR},
+            stu_day    = #{stuDay,jdbcType=DATE}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
