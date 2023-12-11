@@ -21,4 +21,14 @@ public class StuServiceImpl implements StuService {
         PageResult pageResult = new PageResult(stuList, stuCount, pageSize, pageNo);
         return pageResult;
     }
+
+    @Override
+    public Boolean addStu(StuTable stuTable) {
+        int insertStu = stuTableMapper.insertSelective(stuTable);
+        if (insertStu>0){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

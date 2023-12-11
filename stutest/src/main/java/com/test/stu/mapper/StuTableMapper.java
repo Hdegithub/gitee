@@ -19,6 +19,8 @@ public interface StuTableMapper {
 
     int insert(StuTable record);
 
+    //添加学生
+
     int insertSelective(StuTable record);
 
     StuTable selectByPrimaryKey(Long id);
@@ -28,6 +30,7 @@ public interface StuTableMapper {
     int updateByPrimaryKey(StuTable record);
 
     //根据学生名字模糊查询学生
+
     List<StuTable>selectPageByName(@Param("limit") Integer limit, @Param("pageSize") Integer pageSize, @Param("stuName") String stuName);
 
     int findStuCount(@Param("stuName") String stuName);

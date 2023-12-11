@@ -25,10 +25,13 @@
     <select id="selectStuByClass" resultMap="BaseResultMap">
         SELECT *
         FROM stu_class_relation,
-        stu_table
+        stu_table,
+        stu_stage,
+        stu_class
         <where>
             stu_table.stu_id = stu_class_relation.stu_id
-
+            and stu_stage.stage_id=stu_class.stage_id
+            and stu_class.class_id=stu_class_relation.class_id
             <if test="classId != null">
                 and stu_class_relation.class_id=#{classId}
             </if>
